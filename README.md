@@ -35,10 +35,11 @@ Pro Agro Global Ltd is a dynamic and leading company in the distribution of mode
 
 ```
 proagroglobal/
-├── index.html          # Homepage with all main sections
-├── about.html          # Dedicated about page
-├── services.html       # Detailed services page
-├── contact.html        # Contact page with form and info
+├── index.html          # Main homepage with all sections
+├── pages/              # Additional pages folder
+│   ├── about.html      # Dedicated about page
+│   ├── services.html   # Detailed services page
+│   └── contact.html    # Contact page with form and info
 ├── assets/
 │   ├── images/
 │   │   ├── logo.png           # Company logo
@@ -107,9 +108,9 @@ proagroglobal/
 ### Viewing the Website
 
 - **Homepage**: Open `index.html` or navigate to `http://localhost:8000`
-- **About Page**: `about.html` or `http://localhost:8000/about.html`
-- **Services**: `services.html` or `http://localhost:8000/services.html`
-- **Contact**: `contact.html` or `http://localhost:8000/contact.html`
+- **About Page**: `pages/about.html` or `http://localhost:8000/pages/about.html`
+- **Services**: `pages/services.html` or `http://localhost:8000/pages/services.html`
+- **Contact**: `pages/contact.html` or `http://localhost:8000/pages/contact.html`
 
 ## 📱 Responsive Breakpoints
 
