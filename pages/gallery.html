@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Pro Agro Global Gallery - View our completed projects including modern greenhouses, irrigation systems, geomembranes installations, and agricultural facilities across East Africa.">
+    <meta name="keywords" content="pro agro global projects, agriculture gallery, greenhouse installations, irrigation projects, geomembranes, tanzania agriculture">
+    
+    <title>Project Gallery - Pro Agro Global Ltd</title>
+    
+    <!-- TailwindCSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom TailwindCSS Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'agro-green': {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            200: '#bbf7d0',
+                            300: '#86efac',
+                            400: '#4ade80',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            800: '#166534',
+                            900: '#14532d',
+                        }
+                    },
+                    fontFamily: {
+                        'sans': ['Lexend', 'system-ui', 'sans-serif'],
+                        'display': ['Lexend', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        html { scroll-behavior: smooth; }
+        .gradient-bg { background: linear-gradient(135deg, #15803d 0%, #22c55e 50%, #16a34a 100%); }
+        .card-hover { transition: all 0.3s ease; }
+        .card-hover:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1); }
+        .btn-primary { background: linear-gradient(135deg, #16a34a, #22c55e); transition: all 0.3s ease; }
+        .btn-primary:hover { background: linear-gradient(135deg, #15803d, #16a34a); transform: translateY(-2px); }
+        
+        /* Image overlay effects */
+        .image-overlay {
+            position: relative;
+            overflow: hidden;
+            border-radius: 0.75rem;
+        }
+        
+        .image-overlay img {
+            transition: transform 0.3s ease;
+        }
+        
+        .image-overlay:hover img {
+            transform: scale(1.05);
+        }
+        
+        .image-overlay::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.7) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1;
+        }
+        
+        .image-overlay:hover::before {
+            opacity: 1;
+        }
+        
+        .image-overlay .overlay-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1.5rem;
+            color: white;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+            z-index: 2;
+        }
+        
+        .image-overlay:hover .overlay-content {
+            transform: translateY(0);
+        }
+        
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+        }
+        
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 0.5rem;
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            z-index: 1001;
+        }
+        
+        .modal-close:hover {
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body class="font-sans">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0">
+                    <a href="../index.html" class="flex items-center space-x-3">
+                        <img src="../assets/images/logo.png" alt="Pro Agro Global Logo" class="h-12 w-auto">
+                        <div>
+                            <h1 class="text-xl font-bold text-gray-900 font-display">Pro Agro Global</h1>
+                            <p class="text-xs text-agro-green-600 font-medium">Together We Can Grow</p>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="../index.html" class="text-gray-700 hover:text-agro-green-600 font-medium">Home</a>
+                    <a href="about.html" class="text-gray-700 hover:text-agro-green-600 font-medium">About Us</a>
+                    <a href="services.html" class="text-gray-700 hover:text-agro-green-600 font-medium">Services</a>
+                    <a href="gallery.html" class="text-agro-green-600 font-semibold">Gallery</a>
+                    <a href="contact.html" class="text-gray-700 hover:text-agro-green-600 font-medium">Contact</a>
+                    <a href="contact.html" class="btn-primary text-white px-6 py-2 rounded-full font-semibold">Get Quote</a>
+                </div>
+                
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-600 hover:text-gray-900">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div id="mobile-menu" class="md:hidden bg-white border-t border-gray-200 hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="../index.html" class="block px-3 py-2 text-gray-700 hover:text-agro-green-600 font-medium">Home</a>
+                <a href="about.html" class="block px-3 py-2 text-gray-700 hover:text-agro-green-600 font-medium">About Us</a>
+                <a href="services.html" class="block px-3 py-2 text-gray-700 hover:text-agro-green-600 font-medium">Services</a>
+                <a href="gallery.html" class="block px-3 py-2 text-agro-green-600 font-semibold">Gallery</a>
+                <a href="contact.html" class="block px-3 py-2 text-gray-700 hover:text-agro-green-600 font-medium">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-16 bg-gradient-to-br from-agro-green-50 to-green-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 font-display mb-6">Project Gallery</h1>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Showcasing our expertise through successful agricultural installations and projects across East Africa</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Stats -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 text-center">
+                <div class="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-xl">
+                    <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-tint text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-2">50+</h3>
+                    <p class="text-gray-600 font-medium">Irrigation Projects</p>
+                </div>
+                
+                <div class="bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-xl">
+                    <div class="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-seedling text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-2">35+</h3>
+                    <p class="text-gray-600 font-medium">Greenhouse Installations</p>
+                </div>
+                
+                <div class="bg-gradient-to-br from-purple-50 to-purple-100 p-6 rounded-xl">
+                    <div class="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-fish text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-2">25+</h3>
+                    <p class="text-gray-600 font-medium">Fish Pond Liners</p>
+                </div>
+                
+                <div class="bg-gradient-to-br from-orange-50 to-orange-100 p-6 rounded-xl">
+                    <div class="w-16 h-16 bg-orange-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-hard-hat text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-2">10+</h3>
+                    <p class="text-gray-600 font-medium">Civil Engineering Projects</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filter Tabs -->
+    <section class="py-8 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-wrap justify-center gap-4 mb-8">
+                <button class="filter-btn active px-6 py-3 rounded-full font-semibold transition-all" data-filter="all">
+                    All Projects
+                </button>
+                <button class="filter-btn px-6 py-3 rounded-full font-semibold transition-all" data-filter="irrigation">
+                    Irrigation Systems
+                </button>
+                <button class="filter-btn px-6 py-3 rounded-full font-semibold transition-all" data-filter="greenhouse">
+                    Greenhouses
+                </button>
+                <button class="filter-btn px-6 py-3 rounded-full font-semibold transition-all" data-filter="geomembrane">
+                    Geomembranes
+                </button>
+                <button class="filter-btn px-6 py-3 rounded-full font-semibold transition-all" data-filter="infrastructure">
+                    Infrastructure
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Gallery -->
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Featured Project -->
+            <div class="mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 font-display mb-8 text-center">Featured Project</h2>
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+                    <div class="md:flex">
+                        <div class="md:w-1/2">
+                            <div class="image-overlay h-96 md:h-full">
+                                <img src="../assets/images/greenhouses.jpg" alt="Modern Greenhouse Complex" 
+                                     class="w-full h-full object-cover cursor-pointer" onclick="openModal(this)">
+                                <div class="overlay-content">
+                                    <h3 class="text-2xl font-bold mb-2">Modern Greenhouse Complex</h3>
+                                    <p class="text-gray-200">State-of-the-art greenhouse facility with automated climate control systems</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="md:w-1/2 p-8 md:p-12">
+                            <div class="mb-4">
+                                <span class="px-3 py-1 bg-green-100 text-green-800 text-sm font-medium rounded-full">Greenhouse Project</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-900 mb-4 font-display">Advanced Greenhouse Installation</h3>
+                            <p class="text-gray-600 mb-6 leading-relaxed">
+                                A comprehensive greenhouse complex featuring galvanized steel frames, automated irrigation systems, 
+                                climate control technology, and sustainable growing practices. This project demonstrates our capability 
+                                to deliver modern agricultural solutions that maximize productivity while minimizing environmental impact.
+                            </p>
+                            <div class="grid grid-cols-2 gap-4 mb-6">
+                                <div>
+                                    <h4 class="font-semibold text-gray-900 mb-1">Size</h4>
+                                    <p class="text-gray-600">2,500 m²</p>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-900 mb-1">Completion</h4>
+                                    <p class="text-gray-600">2024</p>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-900 mb-1">Location</h4>
+                                    <p class="text-gray-600">Arusha, Tanzania</p>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-900 mb-1">Type</h4>
+                                    <p class="text-gray-600">Commercial</p>
+                                </div>
+                            </div>
+                            <a href="contact.html" class="btn-primary text-white px-6 py-3 rounded-full font-semibold inline-flex items-center">
+                                <i class="fas fa-phone mr-2"></i>
+                                Discuss Your Project
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project Gallery Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="gallery-grid">
+                <!-- Irrigation Projects -->
+                <div class="gallery-item card-hover" data-category="irrigation">
+                    <div class="bg-white rounded-xl overflow-hidden shadow-lg">
+                        <div class="image-overlay h-64">
+                            <img src="../assets/images/extrusion.jpg" alt="Advanced Irrigation Infrastructure" 
+                                 class="w-full h-full object-cover cursor-pointer" onclick="openModal(this)">
+                            <div class="overlay-content">
+                                <h3 class="text-lg font-bold mb-2">Advanced Irrigation Infrastructure</h3>
+                                <p class="text-sm text-gray-200">High-quality pipe systems and automated controls</p>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <div class="mb-3">
+                                <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded-full">Irrigation</span>
+                            </div>
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Drip Irrigation System</h3>
+                            <p class="text-gray-600 text-sm mb-4">Precision irrigation solution for 50-hectare farm with automated scheduling</p>
+                            <div class="flex justify-between text-sm text-gray-500">
+                                <span>50 Hectares</span>
+                                <span>2024</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Greenhouse Projects -->
+                <div class="gallery-item card-hover" data-category="greenhouse">
+                    <div class="bg-white rounded-xl overflow-hidden shadow-lg">
+                        <div class="image-overlay h-64">
+                            <img src="../assets/images/greenhouses.jpg" alt="Commercial Greenhouse Facility" 
+                                 class="w-full h-full object-cover cursor-pointer" onclick="openModal(this)">
+                            <div class="overlay-content">
+                                <h3 class="text-lg font-bold mb-2">Commercial Greenhouse Facility</h3>
+                                <p class="text-sm text-gray-200">Modern greenhouse with climate control systems</p>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <div class="mb-3">
+                                <span class="px-2 py-1 bg-green-100 text-green-800 text-xs font-medium rounded-full">Greenhouse</span>
+                            </div>
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Multi-Span Greenhouse</h3>
+                            <p class="text-gray-600 text-sm mb-4">High-tech greenhouse for year-round vegetable production</p>
+                            <div class="flex justify-between text-sm text-gray-500">
+                                <span>1,200 m²</span>
+                                <span>2023</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Geomembrane Projects -->
+                <div class="gallery-item card-hover" data-category="geomembrane">
+                    <div class="bg-white rounded-xl overflow-hidden shadow-lg">
+                        <div class="image-overlay h-64">
+                            <img src="../assets/images/fishpond.png" alt="Fish Farming Pond with Geomembrane Liner" 
+                                 class="w-full h-full object-cover cursor-pointer" onclick="openModal(this)">
+                            <div class="overlay-content">
+                                <h3 class="text-lg font-bold mb-2">Fish Farming Pond Liner</h3>
+                                <p class="text-sm text-gray-200">HDPE geomembrane installation for aquaculture</p>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <div class="mb-3">
+                                <span class="px-2 py-1 bg-purple-100 text-purple-800 text-xs font-medium rounded-full">Geomembrane</span>
+                            </div>
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Aquaculture Pond Liner</h3>
+                            <p class="text-gray-600 text-sm mb-4">Professional HDPE liner installation for fish farming operations</p>
+                            <div class="flex justify-between text-sm text-gray-500">
+                                <span>5,000 m²</span>
+                                <span>2024</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Agricultural Field Projects -->
+                <div class="gallery-item card-hover" data-category="infrastructure">
+                    <div class="bg-white rounded-xl overflow-hidden shadow-lg">
+                        <div class="image-overlay h-64">
+                            <img src="../assets/images/field.png" alt="Modern Agricultural Field Setup" 
+                                 class="w-full h-full object-cover cursor-pointer" onclick="openModal(this)">
+                            <div class="overlay-content">
+                                <h3 class="text-lg font-bold mb-2">Modern Agricultural Field</h3>
+                                <p class="text-sm text-gray-200">Complete field preparation and irrigation setup</p>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <div class="mb-3">
+                                <span class="px-2 py-1 bg-orange-100 text-orange-800 text-xs font-medium rounded-full">Infrastructure</span>
+                            </div>
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Field Development Project</h3>
+                            <p class="text-gray-600 text-sm mb-4">Complete agricultural field setup with modern farming techniques</p>
+                            <div class="flex justify-between text-sm text-gray-500">
+                                <span>25 Hectares</span>
+                                <span>2023</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- More Irrigation Projects -->
+                <div class="gallery-item card-hover" data-category="irrigation">
+                    <div class="bg-white rounded-xl overflow-hidden shadow-lg">
+                        <div class="h-64 bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center">
+                            <div class="text-center text-blue-700">
+                                <i class="fas fa-tint text-4xl mb-4"></i>
+                                <h3 class="text-lg font-semibold">Sprinkler System Installation</h3>
+                                <p class="text-sm mt-2">Large-scale sprinkler system for commercial farm</p>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <div class="mb-3">
+                                <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded-full">Irrigation</span>
+                            </div>
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Automated Sprinkler System</h3>
+                            <p class="text-gray-600 text-sm mb-4">High-efficiency sprinkler system with smart controls</p>
+                            <div class="flex justify-between text-sm text-gray-500">
+                                <span>75 Hectares</span>
+                                <span>2024</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- More Greenhouse Projects -->
+                <div class="gallery-item card-hover" data-category="greenhouse">
+                    <div class="bg-white rounded-xl overflow-hidden shadow-lg">
+                        <div class="h-64 bg-gradient-to-br from-green-100 to-green-200 flex items-center justify-center">
+                            <div class="text-center text-green-700">
+                                <i class="fas fa-seedling text-4xl mb-4"></i>
+                                <h3 class="text-lg font-semibold">Shade House Construction</h3>
+                                <p class="text-sm mt-2">Protected cultivation structure for vegetables</p>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <div class="mb-3">
+                                <span class="px-2 py-1 bg-green-100 text-green-800 text-xs font-medium rounded-full">Greenhouse</span>
+                            </div>
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Shade House Facility</h3>
+                            <p class="text-gray-600 text-sm mb-4">Protective structure for nursery and vegetable production</p>
+                            <div class="flex justify-between text-sm text-gray-500">
+                                <span>800 m²</span>
+                                <span>2023</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Load More Button -->
+            <div class="text-center mt-12">
+                <button id="load-more-btn" class="btn-primary text-white px-8 py-4 rounded-full font-semibold">
+                    <i class="fas fa-plus mr-2"></i>
+                    View More Projects
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Testimonials -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 font-display mb-4">What Our Clients Say</h2>
+                <p class="text-lg text-gray-600">Real feedback from satisfied customers</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-gray-50 p-8 rounded-xl">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-yellow-400 mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span class="text-sm text-gray-600">(5.0)</span>
+                    </div>
+                    <p class="text-gray-700 mb-4 italic">"Pro Agro Global delivered an outstanding greenhouse facility. The quality of materials and professional installation exceeded our expectations."</p>
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 bg-agro-green-600 rounded-full flex items-center justify-center text-white font-bold mr-3">
+                            JM
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-900">John Mwangi</h4>
+                            <p class="text-sm text-gray-600">Commercial Farmer</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 p-8 rounded-xl">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-yellow-400 mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span class="text-sm text-gray-600">(5.0)</span>
+                    </div>
+                    <p class="text-gray-700 mb-4 italic">"The irrigation system has transformed our farm productivity. Professional service from consultation to completion."</p>
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 bg-agro-green-600 rounded-full flex items-center justify-center text-white font-bold mr-3">
+                            SM
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-900">Sarah Mbeki</h4>
+                            <p class="text-sm text-gray-600">Agricultural Cooperative</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 p-8 rounded-xl">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-yellow-400 mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span class="text-sm text-gray-600">(5.0)</span>
+                    </div>
+                    <p class="text-gray-700 mb-4 italic">"Excellent geomembrane installation for our fish ponds. Quality materials and expert workmanship throughout."</p>
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 bg-agro-green-600 rounded-full flex items-center justify-center text-white font-bold mr-3">
+                            DK
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-900">David Kimani</h4>
+                            <p class="text-sm text-gray-600">Aquaculture Specialist</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-20 gradient-bg text-white">
+        <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold mb-6 font-display">Ready to Start Your Next Project?</h2>
+            <p class="text-xl mb-8 opacity-90">Join our portfolio of successful agricultural installations. Let's discuss how we can help transform your farming operations.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="contact.html" class="bg-white text-agro-green-700 px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition-colors inline-flex items-center justify-center">
+                    <i class="fas fa-phone mr-2"></i>
+                    Get Free Consultation
+                </a>
+                <a href="services.html" class="border-2 border-white text-white hover:bg-white hover:text-agro-green-700 px-8 py-4 rounded-full font-semibold transition-colors inline-flex items-center justify-center">
+                    <i class="fas fa-list mr-2"></i>
+                    View Our Services
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+                <div class="lg:col-span-2">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <img src="../assets/images/logo.png" alt="Pro Agro Global Logo" class="h-12 w-auto">
+                        <div>
+                            <h3 class="text-xl font-bold font-display">Pro Agro Global Ltd</h3>
+                            <p class="text-agro-green-400 text-sm font-medium">Together We Can Grow</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-6 max-w-md">
+                        A dynamic and leading company in the distribution of modern agriculture products, facilities and technologies.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-agro-green-600 rounded-full flex items-center justify-center hover:bg-agro-green-700">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-agro-green-600 rounded-full flex items-center justify-center hover:bg-agro-green-700">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-agro-green-600 rounded-full flex items-center justify-center hover:bg-agro-green-700">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-6 font-display">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="../index.html" class="text-gray-300 hover:text-agro-green-400">Home</a></li>
+                        <li><a href="about.html" class="text-gray-300 hover:text-agro-green-400">About Us</a></li>
+                        <li><a href="services.html" class="text-gray-300 hover:text-agro-green-400">Services</a></li>
+                        <li><a href="gallery.html" class="text-gray-300 hover:text-agro-green-400">Gallery</a></li>
+                        <li><a href="contact.html" class="text-gray-300 hover:text-agro-green-400">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-6 font-display">Contact Info</h4>
+                    <div class="space-y-3 text-gray-300">
+                        <p><i class="fas fa-phone mr-2"></i> +255 782 906 985</p>
+                        <p><i class="fas fa-envelope mr-2"></i> info@proagroglobal.co.tz</p>
+                        <p><i class="fas fa-map-marker-alt mr-2"></i> Arusha, Tanzania</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-400 text-sm mb-4 md:mb-0">
+                        © 2024 Pro Agro Global Ltd. All rights reserved.
+                    </p>
+                    <div class="flex items-center space-x-6 text-sm text-gray-400">
+                        <a href="#" class="hover:text-agro-green-400">Privacy Policy</a>
+                        <a href="../assets/documents/companyprofile.pdf" target="_blank" class="hover:text-agro-green-400">Company Profile</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="modal">
+        <span class="modal-close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // Filter functionality
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Update active button
+                filterButtons.forEach(btn => {
+                    btn.classList.remove('active', 'bg-agro-green-600', 'text-white');
+                    btn.classList.add('bg-white', 'text-gray-700', 'hover:bg-gray-100');
+                });
+                button.classList.remove('bg-white', 'text-gray-700', 'hover:bg-gray-100');
+                button.classList.add('active', 'bg-agro-green-600', 'text-white');
+
+                // Filter items
+                const filter = button.getAttribute('data-filter');
+                
+                galleryItems.forEach(item => {
+                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                        item.style.display = 'block';
+                        setTimeout(() => {
+                            item.style.opacity = '1';
+                            item.style.transform = 'scale(1)';
+                        }, 10);
+                    } else {
+                        item.style.opacity = '0';
+                        item.style.transform = 'scale(0.8)';
+                        setTimeout(() => {
+                            item.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            });
+        });
+
+        // Initialize filter button styles
+        filterButtons.forEach(button => {
+            if (button.classList.contains('active')) {
+                button.classList.add('bg-agro-green-600', 'text-white');
+            } else {
+                button.classList.add('bg-white', 'text-gray-700', 'hover:bg-gray-100');
+            }
+        });
+
+        // Image modal functionality
+        function openModal(img) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            modal.style.display = 'block';
+            modalImg.src = img.src;
+            modalImg.alt = img.alt;
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('imageModal');
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside the image
+        document.getElementById('imageModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        // Load more functionality (placeholder)
+        document.getElementById('load-more-btn').addEventListener('click', function() {
+            // This would typically load more items via AJAX
+            // For now, just show a message
+            this.innerHTML = '<i class="fas fa-check mr-2"></i>All Projects Loaded';
+            this.disabled = true;
+            this.classList.add('opacity-50');
+        });
+    </script>
+</body>
+</html>
