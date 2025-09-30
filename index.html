@@ -154,11 +154,262 @@
             transform: translateY(-2px);
             box-shadow: 0 10px 25px rgba(22, 163, 74, 0.3);
         }
+
+        /* Loading Screen Styles */
+        .loading-gradient {
+            background: linear-gradient(135deg, #22c55e 0%, #16a34a 50%, #15803d 100%);
+        }
+        
+        .loading-dots {
+            display: inline-block;
+            position: relative;
+            width: 80px;
+            height: 80px;
+        }
+        
+        .loading-dots div {
+            position: absolute;
+            top: 33px;
+            width: 13px;
+            height: 13px;
+            border-radius: 50%;
+            background: #fff;
+            animation-timing-function: cubic-bezier(0, 1, 1, 0);
+        }
+        
+        .loading-dots div:nth-child(1) {
+            left: 8px;
+            animation: dot1 0.6s infinite;
+        }
+        
+        .loading-dots div:nth-child(2) {
+            left: 8px;
+            animation: dot2 0.6s infinite;
+        }
+        
+        .loading-dots div:nth-child(3) {
+            left: 32px;
+            animation: dot2 0.6s infinite;
+        }
+        
+        .loading-dots div:nth-child(4) {
+            left: 56px;
+            animation: dot3 0.6s infinite;
+        }
+        
+        @keyframes dot1 {
+            0% { transform: scale(0); }
+            100% { transform: scale(1); }
+        }
+        
+        @keyframes dot3 {
+            0% { transform: scale(1); }
+            100% { transform: scale(0); }
+        }
+        
+        @keyframes dot2 {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(24px, 0); }
+        }
+        
+        @keyframes rotateLeaf {
+            0%, 100% { transform: rotate(0deg) scale(1); }
+            25% { transform: rotate(90deg) scale(1.1); }
+            50% { transform: rotate(180deg) scale(1); }
+            75% { transform: rotate(270deg) scale(1.1); }
+        }
+        
+        @keyframes floatUp {
+            0% { transform: translateY(0px); opacity: 0; }
+            50% { transform: translateY(-30px); opacity: 1; }
+            100% { transform: translateY(-60px); opacity: 0; }
+        }
+        
+        @keyframes wave {
+            0%, 100% { transform: scaleY(1); }
+            50% { transform: scaleY(1.5); }
+        }
+        
+        @keyframes growPlant {
+            0% { transform: scaleY(0) translateY(50%); }
+            50% { transform: scaleY(1) translateY(0); }
+            100% { transform: scaleY(0) translateY(50%); }
+        }
+        
+        @keyframes typing {
+            0% { width: 0; }
+            50% { width: 100%; }
+            100% { width: 0; }
+        }
+        
+        @keyframes blink-caret {
+            0%, 50% { border-color: #fff; }
+            51%, 100% { border-color: transparent; }
+        }
+        
+        .animate-rotate-leaf {
+            animation: rotateLeaf 4s ease-in-out infinite;
+        }
+        
+        .animate-float-up {
+            animation: floatUp 3s ease-in-out infinite;
+        }
+        
+        .animate-wave {
+            animation: wave 2s ease-in-out infinite;
+        }
+        
+        .growing-plant {
+            animation: growPlant 3s ease-in-out infinite;
+        }
+        
+        .typewriter-text {
+            overflow: hidden;
+            border-right: 2px solid #fff;
+            white-space: nowrap;
+            animation: typing 3s steps(40, end) infinite, blink-caret 1s step-end infinite;
+        }
+        
+        .progress-bar {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 6px;
+            background: linear-gradient(90deg, #fff, rgba(255, 255, 255, 0.8));
+            border-radius: 10px;
+            transition: width 0.3s ease;
+        }
+        
+        .floating-particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+            animation: floatUp 3s ease-in-out infinite;
+        }
+        
+        .particle:nth-child(1) { left: 10%; animation-delay: 0s; width: 4px; height: 4px; }
+        .particle:nth-child(2) { left: 20%; animation-delay: 0.5s; width: 6px; height: 6px; }
+        .particle:nth-child(3) { left: 30%; animation-delay: 1s; width: 3px; height: 3px; }
+        .particle:nth-child(4) { left: 40%; animation-delay: 1.5s; width: 5px; height: 5px; }
+        .particle:nth-child(5) { left: 50%; animation-delay: 2s; width: 4px; height: 4px; }
+        .particle:nth-child(6) { left: 60%; animation-delay: 0.3s; width: 6px; height: 6px; }
+        .particle:nth-child(7) { left: 70%; animation-delay: 0.8s; width: 3px; height: 3px; }
+        .particle:nth-child(8) { left: 80%; animation-delay: 1.3s; width: 5px; height: 5px; }
+        .particle:nth-child(9) { left: 90%; animation-delay: 1.8s; width: 4px; height: 4px; }
+        
+        .fade-out {
+            animation: fadeOut 1s ease-out forwards;
+        }
+        
+        @keyframes fadeOut {
+            0% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+        
+        #mainContent {
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+        
+        #mainContent.show {
+            opacity: 1;
+        }
     </style>
     
     <title>Pro Agro Global Ltd - Modern Agriculture Solutions | Together We Can Grow</title>
 </head>
 <body class="font-sans">
+    <!-- Loading Screen -->
+    <div id="loadingScreen" class="fixed inset-0 loading-gradient flex items-center justify-center z-50">
+        <!-- Floating Particles Background -->
+        <div class="floating-particles">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+        
+        <!-- Main Loading Content -->
+        <div class="text-center text-white relative z-10">
+            <!-- Animated Logo -->
+            <div class="mb-8">
+                <div class="inline-flex items-center justify-center w-32 h-32 bg-white/20 rounded-full mb-6 backdrop-blur-sm">
+                    <i class="fas fa-leaf text-6xl text-white animate-rotate-leaf"></i>
+                </div>
+            </div>
+            
+            <!-- Company Name with Animation -->
+            <h1 class="text-4xl sm:text-6xl font-bold font-display mb-4 fade-in-up">
+                Pro Agro Global
+            </h1>
+            
+            <!-- Tagline with Typewriter Effect -->
+            <div class="text-xl sm:text-2xl font-light mb-8 h-8">
+                <span class="typewriter-text">Together We Can Grow</span>
+            </div>
+            
+            <!-- Loading Animation -->
+            <div class="mb-8">
+                <div class="loading-dots">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+            
+            <!-- Progress Bar -->
+            <div class="max-w-md mx-auto mb-8">
+                <div class="progress-bar">
+                    <div id="progressFill" class="progress-fill" style="width: 0%;"></div>
+                </div>
+            </div>
+            
+            <!-- Loading Text -->
+            <p id="loadingText" class="text-lg font-medium animate-pulse">
+                Preparing your agricultural solutions...
+            </p>
+            
+            <!-- Skip Button (appears after 2 seconds) -->
+            <button id="skipButton" class="mt-8 bg-white/20 text-white px-6 py-2 rounded-full font-medium backdrop-blur-sm hover:bg-white/30 transition-all duration-300 opacity-0 pointer-events-none">
+                Skip Loading
+            </button>
+        </div>
+        
+        <!-- Growing Plant Animation (Bottom Corner) -->
+        <div class="absolute bottom-10 right-10">
+            <i class="fas fa-seedling text-6xl text-white/30 growing-plant"></i>
+        </div>
+        
+        <!-- Irrigation Animation (Bottom Left) -->
+        <div class="absolute bottom-10 left-10">
+            <div class="flex items-end space-x-1">
+                <div class="w-2 h-8 bg-white/30 rounded animate-wave"></div>
+                <div class="w-2 h-12 bg-white/30 rounded animate-wave" style="animation-delay: 0.1s;"></div>
+                <div class="w-2 h-6 bg-white/30 rounded animate-wave" style="animation-delay: 0.2s;"></div>
+                <div class="w-2 h-10 bg-white/30 rounded animate-wave" style="animation-delay: 0.3s;"></div>
+                <div class="w-2 h-4 bg-white/30 rounded animate-wave" style="animation-delay: 0.4s;"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content Container -->
+    <div id="mainContent">
     <!-- Navigation -->
     <nav class="fixed w-full z-50 bg-white shadow-lg transition-all duration-300" id="navbar">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -986,7 +1237,137 @@
             });
         });
 
-        // Intersection Observer for animations
+        // Loading Screen Functionality
+        const loadingScreen = document.getElementById('loadingScreen');
+        const loadingText = document.getElementById('loadingText');
+        const skipButton = document.getElementById('skipButton');
+        const progressFill = document.getElementById('progressFill');
+        const mainContent = document.getElementById('mainContent');
+        
+        // Loading messages array
+        const loadingMessages = [
+            "Preparing your agricultural solutions...",
+            "Loading modern farming technology...",
+            "Initializing irrigation systems...",
+            "Setting up greenhouse facilities...",
+            "Connecting to agricultural network...",
+            "Finalizing your experience..."
+        ];
+        
+        let currentMessageIndex = 0;
+        let loadingProgress = 0;
+        
+        // Function to update loading text
+        function updateLoadingText() {
+            if (currentMessageIndex < loadingMessages.length) {
+                loadingText.textContent = loadingMessages[currentMessageIndex];
+                currentMessageIndex++;
+            }
+        }
+        
+        // Function to simulate loading progress
+        function updateProgress() {
+            loadingProgress += Math.random() * 15 + 5; // Random increment between 5-20
+            if (loadingProgress > 100) loadingProgress = 100;
+            
+            progressFill.style.width = loadingProgress + '%';
+            
+            if (loadingProgress >= 100) {
+                setTimeout(showMainContent, 500); // Wait a bit then show main content
+            }
+        }
+        
+        // Function to show main content
+        function showMainContent() {
+            loadingScreen.classList.add('fade-out');
+            setTimeout(() => {
+                loadingScreen.style.display = 'none';
+                mainContent.classList.add('show');
+                document.body.style.overflow = 'auto'; // Re-enable scrolling
+            }, 1000);
+        }
+        
+        // Initialize loading sequence
+        function startLoading() {
+            // Prevent scrolling during loading
+            document.body.style.overflow = 'hidden';
+            
+            // Update loading text every 800ms
+            const textInterval = setInterval(() => {
+                updateLoadingText();
+                if (currentMessageIndex >= loadingMessages.length) {
+                    clearInterval(textInterval);
+                }
+            }, 800);
+            
+            // Update progress every 600ms
+            const progressInterval = setInterval(() => {
+                updateProgress();
+                if (loadingProgress >= 100) {
+                    clearInterval(progressInterval);
+                }
+            }, 600);
+            
+            // Show skip button after 2 seconds
+            setTimeout(() => {
+                skipButton.classList.remove('opacity-0', 'pointer-events-none');
+                skipButton.classList.add('opacity-100', 'pointer-events-auto');
+            }, 2000);
+        }
+        
+        // Skip button functionality
+        skipButton.addEventListener('click', showMainContent);
+        
+        // Keyboard shortcut to skip (Space or Enter)
+        document.addEventListener('keydown', (e) => {
+            if (e.code === 'Space' || e.code === 'Enter') {
+                e.preventDefault();
+                showMainContent();
+            }
+        });
+        
+        // Auto show main content after 4 seconds regardless
+        setTimeout(showMainContent, 4000);
+        
+        // Start loading animation when page loads
+        window.addEventListener('load', startLoading);
+        
+        // Fallback: start loading immediately if load event already fired
+        if (document.readyState === 'complete') {
+            startLoading();
+        }
+        
+        // Add some random particle effects
+        function createFloatingParticle() {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.width = Math.random() * 4 + 2 + 'px';
+            particle.style.height = particle.style.width;
+            particle.style.animationDelay = Math.random() * 3 + 's';
+            
+            const floatingParticles = document.querySelector('.floating-particles');
+            if (floatingParticles) {
+                floatingParticles.appendChild(particle);
+                
+                // Remove particle after animation
+                setTimeout(() => {
+                    if (particle.parentNode) {
+                        particle.remove();
+                    }
+                }, 3000);
+            }
+        }
+        
+        // Create particles periodically
+        const particleInterval = setInterval(createFloatingParticle, 300);
+        
+        // Clean up particles when loading completes
+        setTimeout(() => {
+            clearInterval(particleInterval);
+        }, 4000);
+
+        // Intersection Observer for animations (after loading)
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -1000,17 +1381,20 @@
             });
         }, observerOptions);
 
-        // Observe elements for animation
-        document.querySelectorAll('.card-hover, .gradient-bg').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Add loading animation for images
-        document.querySelectorAll('img').forEach(img => {
-            img.addEventListener('load', () => {
-                img.classList.add('fade-in-up');
+        // Observe elements for animation (after main content is shown)
+        setTimeout(() => {
+            document.querySelectorAll('.card-hover, .gradient-bg').forEach(el => {
+                observer.observe(el);
             });
-        });
+
+            // Add loading animation for images
+            document.querySelectorAll('img').forEach(img => {
+                img.addEventListener('load', () => {
+                    img.classList.add('fade-in-up');
+                });
+            });
+        }, 4500);
     </script>
+    </div> <!-- End Main Content Container -->
 </body>
 </html>
