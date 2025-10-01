@@ -59,7 +59,7 @@
 </head>
 <body class="font-sans">
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 bg-white shadow-lg">
+    <nav id="navbar" class="fixed w-full z-50 bg-white shadow-lg">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <div class="flex-shrink-0">
@@ -357,10 +357,34 @@
         </div>
     </footer>
 
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="fixed bottom-8 right-8 w-12 h-12 bg-agro-green-600 text-white rounded-full shadow-lg hover:bg-agro-green-700 transition-all transform translate-y-12 opacity-0 z-[60]">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
     <script>
         // Mobile menu toggle
         document.getElementById('mobile-menu-button').addEventListener('click', () => {
             document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // Back to top functionality
+        document.getElementById('backToTop').addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            const backToTopButton = document.getElementById('backToTop');
+            
+            if (window.scrollY > 100) {
+                navbar.classList.add('bg-white/95', 'backdrop-blur-sm');
+                backToTopButton.classList.remove('translate-y-12', 'opacity-0');
+            } else {
+                navbar.classList.remove('bg-white/95', 'backdrop-blur-sm');
+                backToTopButton.classList.add('translate-y-12', 'opacity-0');
+            }
         });
     </script>
 </body>
