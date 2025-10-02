@@ -7,14 +7,56 @@
     <meta name="keywords" content="agriculture, irrigation, greenhouses, geomembranes, civil engineering, Tanzania, East Africa, modern farming">
     <meta name="author" content="Pro Agro Global Ltd">
     
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.proagroglobal.co.tz/">
+    
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Pro Agro Global Ltd - Modern Agriculture Solutions">
     <meta property="og:description" content="Leading provider of modern agriculture products, facilities and technologies in East Africa.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.proagroglobal.co.tz/">
+    <meta property="og:image" content="https://www.proagroglobal.co.tz/assets/images/logo.png">
     
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="assets/images/logo.png">
+    
+    <!-- Structured Data (Schema.org) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Pro Agro Global Ltd",
+      "alternateName": "Pro Agro Global",
+      "description": "Leading provider of modern agriculture products, facilities and technologies in East Africa. Specializing in irrigation systems, greenhouses, geomembranes, and civil engineering.",
+      "url": "https://www.proagroglobal.co.tz",
+      "logo": "https://www.proagroglobal.co.tz/assets/images/logo.png",
+      "slogan": "Together We Can Grow",
+      "foundingDate": "2016",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Tanganyika Farmers Association Complex, West Wing, Room 40",
+        "addressLocality": "Arusha",
+        "postalCode": "10414",
+        "addressCountry": "TZ"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+255-782-906-985",
+        "contactType": "Customer Service",
+        "email": "info@proagroglobal.co.tz",
+        "availableLanguage": ["English", "Swahili"]
+      },
+      "areaServed": {
+        "@type": "Place",
+        "name": "East Africa"
+      },
+      "sameAs": [
+        "https://www.facebook.com/proagroglobal",
+        "https://www.instagram.com/proagroglobal",
+        "https://www.linkedin.com/company/proagroglobal"
+      ]
+    }
+    </script>
     
     <!-- TailwindCSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -327,8 +369,28 @@
     </style>
     
     <title>Pro Agro Global Ltd - Modern Agriculture Solutions | Together We Can Grow</title>
+    
+    <!-- Skip to Content Link Styling -->
+    <style>
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #16a34a;
+            color: white;
+            padding: 8px 16px;
+            z-index: 1000;
+            text-decoration: none;
+            border-radius: 0 0 4px 0;
+        }
+        .skip-link:focus {
+            top: 0;
+        }
+    </style>
 </head>
 <body class="font-sans">
+    <!-- Skip to Content Link -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
     <!-- Loading Screen -->
     <div id="loadingScreen" class="fixed inset-0 loading-gradient flex items-center justify-center z-50">
         <!-- Floating Particles Background -->
@@ -411,7 +473,7 @@
     <!-- Main Content Container -->
     <div id="mainContent">
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 bg-white shadow-lg transition-all duration-300" id="navbar">
+    <nav class="fixed w-full z-50 bg-white shadow-lg transition-all duration-300" id="navbar" aria-label="Main navigation">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <!-- Logo -->
@@ -437,8 +499,12 @@
                 
                 <!-- Mobile menu button -->
                 <div class="md:hidden">
-                    <button id="mobile-menu-button" class="text-gray-600 hover:text-gray-900 focus:outline-none">
-                        <i class="fas fa-bars text-xl"></i>
+                    <button id="mobile-menu-button" 
+                            class="text-gray-600 hover:text-gray-900 focus:outline-none"
+                            aria-label="Toggle mobile menu"
+                            aria-expanded="false"
+                            aria-controls="mobile-menu">
+                        <i class="fas fa-bars text-xl" aria-hidden="true"></i>
                     </button>
                 </div>
             </div>
@@ -457,6 +523,8 @@
         </div>
     </nav>
 
+    <!-- Main Content -->
+    <main id="main-content">
     <!-- Hero Section -->
     <section id="home" class="hero-bg min-h-screen flex items-center justify-center text-white relative">
         <div class="absolute inset-0 bg-black opacity-20"></div>
@@ -695,7 +763,7 @@
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div class="bg-white rounded-xl overflow-hidden shadow-lg card-hover">
                     <div class="relative overflow-hidden">
-                        <img src="assets/images/greenhouses.jpg" alt="Modern Greenhouses" class="w-full h-64 object-cover transition-transform duration-300 hover:scale-110">
+                        <img src="assets/images/greenhouses.jpg" alt="Modern Greenhouses" class="w-full h-64 object-cover transition-transform duration-300 hover:scale-110" width="800" height="600" loading="lazy">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
                         <div class="absolute bottom-4 left-4 text-white opacity-0 hover:opacity-100 transition-opacity duration-300">
                             <h3 class="text-lg font-semibold">Modern Greenhouses</h3>
@@ -706,7 +774,7 @@
                 
                 <div class="bg-white rounded-xl overflow-hidden shadow-lg card-hover">
                     <div class="relative overflow-hidden">
-                        <img src="assets/images/field.png" alt="Agricultural Field" class="w-full h-64 object-cover transition-transform duration-300 hover:scale-110">
+                        <img src="assets/images/field.png" alt="Agricultural Field" class="w-full h-64 object-cover transition-transform duration-300 hover:scale-110" width="800" height="600" loading="lazy">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
                         <div class="absolute bottom-4 left-4 text-white opacity-0 hover:opacity-100 transition-opacity duration-300">
                             <h3 class="text-lg font-semibold">Agricultural Fields</h3>
@@ -717,7 +785,7 @@
                 
                 <div class="bg-white rounded-xl overflow-hidden shadow-lg card-hover">
                     <div class="relative overflow-hidden">
-                        <img src="assets/images/fishpond.png" alt="Fish Farming Pond" class="w-full h-64 object-cover transition-transform duration-300 hover:scale-110">
+                        <img src="assets/images/fishpond.png" alt="Fish Farming Pond" class="w-full h-64 object-cover transition-transform duration-300 hover:scale-110" width="800" height="600" loading="lazy">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
                         <div class="absolute bottom-4 left-4 text-white opacity-0 hover:opacity-100 transition-opacity duration-300">
                             <h3 class="text-lg font-semibold">Fish Farming Ponds</h3>
@@ -728,7 +796,7 @@
                 
                 <div class="bg-white rounded-xl overflow-hidden shadow-lg card-hover md:col-span-2">
                     <div class="relative overflow-hidden">
-                        <img src="assets/images/extrusion.jpg" alt="Pipe Extrusion" class="w-full h-64 object-cover transition-transform duration-300 hover:scale-110">
+                        <img src="assets/images/extrusion.jpg" alt="Pipe Extrusion" class="w-full h-64 object-cover transition-transform duration-300 hover:scale-110" width="1200" height="600" loading="lazy">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
                         <div class="absolute bottom-4 left-4 text-white opacity-0 hover:opacity-100 transition-opacity duration-300">
                             <h3 class="text-lg font-semibold">Irrigation Infrastructure</h3>
@@ -1093,6 +1161,8 @@
             </div>
         </div>
     </section>
+    </main>
+    <!-- End Main Content -->
 
     <!-- Footer -->
     <footer class="bg-gray-900 text-white py-16">
@@ -1168,8 +1238,10 @@
     </footer>
 
     <!-- Back to Top Button -->
-    <button id="backToTop" class="fixed bottom-8 right-8 w-12 h-12 bg-agro-green-600 text-white rounded-full shadow-lg hover:bg-agro-green-700 transition-all transform translate-y-12 opacity-0 z-[60]">
-        <i class="fas fa-chevron-up"></i>
+    <button id="backToTop" 
+            class="fixed bottom-8 right-8 w-12 h-12 bg-agro-green-600 text-white rounded-full shadow-lg hover:bg-agro-green-700 transition-all transform translate-y-12 opacity-0 z-[60]"
+            aria-label="Back to top">
+        <i class="fas fa-chevron-up" aria-hidden="true"></i>
     </button>
 
     <!-- JavaScript -->
@@ -1179,6 +1251,8 @@
         const mobileMenu = document.getElementById('mobile-menu');
         
         mobileMenuButton.addEventListener('click', () => {
+            const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
+            mobileMenuButton.setAttribute('aria-expanded', !isExpanded);
             mobileMenu.classList.toggle('hidden');
         });
 
@@ -1209,23 +1283,50 @@
             const formData = new FormData(e.target);
             const data = Object.fromEntries(formData.entries());
             
+            // Remove any existing error messages
+            const existingError = document.querySelector('[role="alert"]');
+            if (existingError) existingError.remove();
+            
             // Simple form validation
             if (!data.firstName || !data.lastName || !data.email || !data.message) {
-                alert('Please fill in all required fields.');
+                showFormError('Please fill in all required fields.', e.target);
                 return;
             }
             
             // Email validation
             const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailPattern.test(data.email)) {
-                alert('Please enter a valid email address.');
+                showFormError('Please enter a valid email address.', e.target);
                 return;
             }
             
-            // Show success message (in a real application, you would send this data to a server)
-            alert('Thank you for your message! We will get back to you soon.');
+            // Show success message
+            showFormSuccess('Thank you for your message! We will get back to you within 24 hours.', e.target);
             e.target.reset();
         });
+        
+        // Function to show accessible error messages
+        function showFormError(message, form) {
+            const errorDiv = document.createElement('div');
+            errorDiv.setAttribute('role', 'alert');
+            errorDiv.setAttribute('aria-live', 'polite');
+            errorDiv.className = 'bg-red-50 border-l-4 border-red-500 text-red-700 p-4 mb-4 rounded';
+            errorDiv.innerHTML = `<div class="flex"><i class="fas fa-exclamation-circle mr-2 mt-1"></i><p>${message}</p></div>`;
+            form.insertBefore(errorDiv, form.firstChild);
+            errorDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+        
+        // Function to show accessible success messages
+        function showFormSuccess(message, form) {
+            const successDiv = document.createElement('div');
+            successDiv.setAttribute('role', 'alert');
+            successDiv.setAttribute('aria-live', 'polite');
+            successDiv.className = 'bg-green-50 border-l-4 border-green-500 text-green-700 p-4 mb-4 rounded';
+            successDiv.innerHTML = `<div class="flex"><i class="fas fa-check-circle mr-2 mt-1"></i><p>${message}</p></div>`;
+            form.insertBefore(successDiv, form.firstChild);
+            successDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            setTimeout(() => successDiv.remove(), 5000);
+        }
 
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -1336,8 +1437,16 @@
             }
         });
         
-        // Auto show main content after 4 seconds regardless
-        setTimeout(showMainContent, 4000);
+        // Check if user has visited before
+        if (sessionStorage.getItem('visitedBefore')) {
+            // Skip loading screen for return visitors
+            showMainContent();
+        } else {
+            // Show loading screen for first-time visitors
+            sessionStorage.setItem('visitedBefore', 'true');
+            // Auto show main content after 2 seconds (reduced from 4)
+            setTimeout(showMainContent, 2000);
+        }
         
         // Start loading animation when page loads
         window.addEventListener('load', startLoading);

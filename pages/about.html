@@ -6,6 +6,16 @@
     <meta name="description" content="About Pro Agro Global Ltd - 9 years of experience in modern agriculture products, facilities and technologies across East Africa. Learn about our story, mission and achievements.">
     <meta name="keywords" content="about pro agro global, agriculture company tanzania, farming solutions, arusha agriculture">
     
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.proagroglobal.co.tz/pages/about.html">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="About Us - Pro Agro Global Ltd">
+    <meta property="og:description" content="9 years of excellence in modern agriculture solutions across East Africa. Learn about our story, mission, and achievements.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.proagroglobal.co.tz/pages/about.html">
+    <meta property="og:image" content="https://www.proagroglobal.co.tz/assets/images/logo.png">
+    
     <title>About Us - Pro Agro Global Ltd</title>
     
     <!-- Favicon -->
@@ -55,11 +65,14 @@
         .card-hover:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1); }
         .btn-primary { background: linear-gradient(135deg, #16a34a, #22c55e); transition: all 0.3s ease; }
         .btn-primary:hover { background: linear-gradient(135deg, #15803d, #16a34a); transform: translateY(-2px); }
+        .skip-link { position: absolute; top: -40px; left: 0; background: #16a34a; color: white; padding: 8px 16px; z-index: 1000; text-decoration: none; border-radius: 0 0 4px 0; }
+        .skip-link:focus { top: 0; }
     </style>
 </head>
 <body class="font-sans">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
     <!-- Navigation -->
-    <nav id="navbar" class="fixed w-full z-50 bg-white shadow-lg">
+    <nav id="navbar" class="fixed w-full z-50 bg-white shadow-lg" aria-label="Main navigation">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <div class="flex-shrink-0">
@@ -82,8 +95,12 @@
                 </div>
                 
                 <div class="md:hidden">
-                    <button id="mobile-menu-button" class="text-gray-600 hover:text-gray-900">
-                        <i class="fas fa-bars text-xl"></i>
+                    <button id="mobile-menu-button" 
+                            class="text-gray-600 hover:text-gray-900"
+                            aria-label="Toggle mobile menu"
+                            aria-expanded="false"
+                            aria-controls="mobile-menu">
+                        <i class="fas fa-bars text-xl" aria-hidden="true"></i>
                     </button>
                 </div>
             </div>
@@ -100,6 +117,7 @@
         </div>
     </nav>
 
+    <main id="main-content">
     <!-- Hero Section -->
     <section class="pt-32 pb-16 bg-gradient-to-br from-agro-green-50 to-green-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -129,7 +147,7 @@
                     </div>
                 </div>
                 <div class="flex items-center justify-center">
-                    <img src="../assets/images/greenhouses.jpg" alt="Pro Agro Global Facilities" class="rounded-xl shadow-lg w-full h-96 object-cover">
+                    <img src="../assets/images/greenhouses.jpg" alt="Pro Agro Global Facilities" class="rounded-xl shadow-lg w-full h-96 object-cover" width="800" height="600" loading="lazy">
                 </div>
             </div>
         </div>
@@ -305,6 +323,7 @@
             </div>
         </div>
     </section>
+    </main>
 
     <!-- Footer -->
     <footer class="bg-gray-900 text-white py-16">
@@ -380,14 +399,20 @@
     </footer>
 
     <!-- Back to Top Button -->
-    <button id="backToTop" class="fixed bottom-8 right-8 w-12 h-12 bg-agro-green-600 text-white rounded-full shadow-lg hover:bg-agro-green-700 transition-all transform translate-y-12 opacity-0 z-[60]">
-        <i class="fas fa-chevron-up"></i>
+    <button id="backToTop" 
+            class="fixed bottom-8 right-8 w-12 h-12 bg-agro-green-600 text-white rounded-full shadow-lg hover:bg-agro-green-700 transition-all transform translate-y-12 opacity-0 z-[60]"
+            aria-label="Back to top">
+        <i class="fas fa-chevron-up" aria-hidden="true"></i>
     </button>
 
     <script>
         // Mobile menu toggle
-        document.getElementById('mobile-menu-button').addEventListener('click', () => {
-            document.getElementById('mobile-menu').classList.toggle('hidden');
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
+            mobileMenuButton.setAttribute('aria-expanded', !isExpanded);
+            mobileMenu.classList.toggle('hidden');
         });
 
         // Back to top functionality

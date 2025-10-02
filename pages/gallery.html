@@ -6,6 +6,16 @@
     <meta name="description" content="Pro Agro Global Gallery - View our completed projects including modern greenhouses, irrigation systems, geomembranes installations, and agricultural facilities across East Africa.">
     <meta name="keywords" content="pro agro global projects, agriculture gallery, greenhouse installations, irrigation projects, geomembranes, tanzania agriculture">
     
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.proagroglobal.co.tz/pages/gallery.html">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Project Gallery - Pro Agro Global Ltd">
+    <meta property="og:description" content="View our completed agricultural projects including greenhouses, irrigation systems, and geomembranes installations across East Africa.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.proagroglobal.co.tz/pages/gallery.html">
+    <meta property="og:image" content="https://www.proagroglobal.co.tz/assets/images/greenhouses.jpg">
+    
     <title>Project Gallery - Pro Agro Global Ltd</title>
     
     <!-- Favicon -->
@@ -137,11 +147,14 @@
         .modal-close:hover {
             opacity: 0.7;
         }
+        .skip-link { position: absolute; top: -40px; left: 0; background: #16a34a; color: white; padding: 8px 16px; z-index: 1000; text-decoration: none; border-radius: 0 0 4px 0; }
+        .skip-link:focus { top: 0; }
     </style>
 </head>
 <body class="font-sans">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
     <!-- Navigation -->
-    <nav id="navbar" class="fixed w-full z-50 bg-white shadow-lg">
+    <nav id="navbar" class="fixed w-full z-50 bg-white shadow-lg" aria-label="Main navigation">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <div class="flex-shrink-0">
@@ -164,8 +177,12 @@
                 </div>
                 
                 <div class="md:hidden">
-                    <button id="mobile-menu-button" class="text-gray-600 hover:text-gray-900">
-                        <i class="fas fa-bars text-xl"></i>
+                    <button id="mobile-menu-button" 
+                            class="text-gray-600 hover:text-gray-900"
+                            aria-label="Toggle mobile menu"
+                            aria-expanded="false"
+                            aria-controls="mobile-menu">
+                        <i class="fas fa-bars text-xl" aria-hidden="true"></i>
                     </button>
                 </div>
             </div>
@@ -182,6 +199,7 @@
         </div>
     </nav>
 
+    <main id="main-content">
     <!-- Hero Section -->
     <section class="pt-32 pb-16 bg-gradient-to-br from-agro-green-50 to-green-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -234,20 +252,20 @@
     <!-- Filter Tabs -->
     <section class="py-8 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-wrap justify-center gap-4 mb-8">
-                <button class="filter-btn active px-6 py-3 rounded-full font-semibold transition-all" data-filter="all">
+            <div class="flex flex-wrap justify-center gap-4 mb-8" role="group" aria-label="Filter projects by category">
+                <button class="filter-btn active px-6 py-3 rounded-full font-semibold transition-all" data-filter="all" aria-pressed="true" aria-label="Show all projects">
                     All Projects
                 </button>
-                <button class="filter-btn px-6 py-3 rounded-full font-semibold transition-all" data-filter="irrigation">
+                <button class="filter-btn px-6 py-3 rounded-full font-semibold transition-all" data-filter="irrigation" aria-pressed="false" aria-label="Show irrigation projects">
                     Irrigation Systems
                 </button>
-                <button class="filter-btn px-6 py-3 rounded-full font-semibold transition-all" data-filter="greenhouse">
+                <button class="filter-btn px-6 py-3 rounded-full font-semibold transition-all" data-filter="greenhouse" aria-pressed="false" aria-label="Show greenhouse projects">
                     Greenhouses
                 </button>
-                <button class="filter-btn px-6 py-3 rounded-full font-semibold transition-all" data-filter="geomembrane">
+                <button class="filter-btn px-6 py-3 rounded-full font-semibold transition-all" data-filter="geomembrane" aria-pressed="false" aria-label="Show geomembrane projects">
                     Geomembranes
                 </button>
-                <button class="filter-btn px-6 py-3 rounded-full font-semibold transition-all" data-filter="infrastructure">
+                <button class="filter-btn px-6 py-3 rounded-full font-semibold transition-all" data-filter="infrastructure" aria-pressed="false" aria-label="Show infrastructure projects">
                     Infrastructure
                 </button>
             </div>
@@ -265,7 +283,7 @@
                         <div class="md:w-1/2">
                             <div class="image-overlay h-96 md:h-full">
                                 <img src="../assets/images/greenhouses.jpg" alt="Modern Greenhouse Complex" 
-                                     class="w-full h-full object-cover cursor-pointer" onclick="openModal(this)">
+                                     class="w-full h-full object-cover cursor-pointer" onclick="openModal(this)" width="800" height="600" loading="lazy">
                                 <div class="overlay-content">
                                     <h3 class="text-2xl font-bold mb-2">Modern Greenhouse Complex</h3>
                                     <p class="text-gray-200">State-of-the-art greenhouse facility with automated climate control systems</p>
@@ -316,7 +334,7 @@
                     <div class="bg-white rounded-xl overflow-hidden shadow-lg">
                         <div class="image-overlay h-64">
                             <img src="../assets/images/extrusion.jpg" alt="Advanced Irrigation Infrastructure" 
-                                 class="w-full h-full object-cover cursor-pointer" onclick="openModal(this)">
+                                 class="w-full h-full object-cover cursor-pointer" onclick="openModal(this)" width="800" height="600" loading="lazy">
                             <div class="overlay-content">
                                 <h3 class="text-lg font-bold mb-2">Advanced Irrigation Infrastructure</h3>
                                 <p class="text-sm text-gray-200">High-quality pipe systems and automated controls</p>
@@ -568,6 +586,7 @@
             </div>
         </div>
     </section>
+    </main>
 
     <!-- Footer -->
     <footer class="bg-gray-900 text-white py-16">
@@ -643,20 +662,26 @@
     </footer>
 
     <!-- Back to Top Button -->
-    <button id="backToTop" class="fixed bottom-8 right-8 w-12 h-12 bg-agro-green-600 text-white rounded-full shadow-lg hover:bg-agro-green-700 transition-all transform translate-y-12 opacity-0 z-[60]">
-        <i class="fas fa-chevron-up"></i>
+    <button id="backToTop" 
+            class="fixed bottom-8 right-8 w-12 h-12 bg-agro-green-600 text-white rounded-full shadow-lg hover:bg-agro-green-700 transition-all transform translate-y-12 opacity-0 z-[60]"
+            aria-label="Back to top">
+        <i class="fas fa-chevron-up" aria-hidden="true"></i>
     </button>
 
     <!-- Image Modal -->
-    <div id="imageModal" class="modal">
-        <span class="modal-close" onclick="closeModal()">&times;</span>
-        <img class="modal-content" id="modalImage">
+    <div id="imageModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalImage">
+        <button class="modal-close" onclick="closeModal()" aria-label="Close image modal">&times;</button>
+        <img class="modal-content" id="modalImage" alt="">
     </div>
 
     <script>
         // Mobile menu toggle
-        document.getElementById('mobile-menu-button').addEventListener('click', () => {
-            document.getElementById('mobile-menu').classList.toggle('hidden');
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
+            mobileMenuButton.setAttribute('aria-expanded', !isExpanded);
+            mobileMenu.classList.toggle('hidden');
         });
 
         // Back to top functionality
@@ -688,9 +713,11 @@
                 filterButtons.forEach(btn => {
                     btn.classList.remove('active', 'bg-agro-green-600', 'text-white');
                     btn.classList.add('bg-white', 'text-gray-700', 'hover:bg-gray-100');
+                    btn.setAttribute('aria-pressed', 'false');
                 });
                 button.classList.remove('bg-white', 'text-gray-700', 'hover:bg-gray-100');
                 button.classList.add('active', 'bg-agro-green-600', 'text-white');
+                button.setAttribute('aria-pressed', 'true');
 
                 // Filter items
                 const filter = button.getAttribute('data-filter');
