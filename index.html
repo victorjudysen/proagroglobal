@@ -298,7 +298,7 @@
         }
         
         .animate-wave {
-            animation: wave 2s ease-in-out infinite;
+            animation: wave ease-in-out infinite;
         }
         
         .growing-plant {
@@ -447,10 +447,11 @@
                 Preparing your agricultural solutions...
             </p>
             
-            <!-- Skip Button (appears after 2 seconds) -->
-            <button id="skipButton" class="mt-8 bg-white/20 text-white px-6 py-2 rounded-full font-medium backdrop-blur-sm hover:bg-white/30 transition-all duration-300 opacity-0 pointer-events-none">
-                Skip Loading
+            <!-- Skip Button -->
+            <button id="skipButton" aria-label="Skip loading screen" class="mt-8 bg-white/20 text-white px-6 py-3 rounded-full font-medium backdrop-blur-sm hover:bg-white/30 hover:scale-105 transition-all duration-300 border-2 border-white/30 hover:border-white/50 shadow-lg">
+                <i class="fas fa-forward mr-2"></i>Skip Intro
             </button>
+            <p class="text-sm text-white/80 mt-2 font-light">or press Space/Enter</p>
         </div>
         
         <!-- Growing Plant Animation (Bottom Corner) -->
@@ -1390,6 +1391,9 @@
         
         // Function to show main content
         function showMainContent() {
+            // Prevent multiple calls
+            if (loadingScreen.classList.contains('fade-out')) return;
+            
             loadingScreen.classList.add('fade-out');
             setTimeout(() => {
                 loadingScreen.style.display = 'none';
@@ -1418,20 +1422,14 @@
                     clearInterval(progressInterval);
                 }
             }, 600);
-            
-            // Show skip button after 2 seconds
-            setTimeout(() => {
-                skipButton.classList.remove('opacity-0', 'pointer-events-none');
-                skipButton.classList.add('opacity-100', 'pointer-events-auto');
-            }, 2000);
         }
         
         // Skip button functionality
         skipButton.addEventListener('click', showMainContent);
         
-        // Keyboard shortcut to skip (Space or Enter)
+        // Keyboard shortcut to skip (Space or Enter) - only when loading screen is visible
         document.addEventListener('keydown', (e) => {
-            if (e.code === 'Space' || e.code === 'Enter') {
+            if ((e.code === 'Space' || e.code === 'Enter') && loadingScreen.style.display !== 'none') {
                 e.preventDefault();
                 showMainContent();
             }
@@ -1444,8 +1442,8 @@
         } else {
             // Show loading screen for first-time visitors
             sessionStorage.setItem('visitedBefore', 'true');
-            // Auto show main content after 4 seconds
-            setTimeout(showMainContent, 4000);
+            // Auto show main content after 5 seconds
+            setTimeout(showMainContent, 5000);
         }
         
         // Start loading animation when page loads
