@@ -137,9 +137,9 @@
             width: 2rem;
         }
         
-        /* Hero gradient overlay */
+        /* Hero gradient overlay - subtle dark shade for image clarity */
         .hero-overlay {
-            background: linear-gradient(135deg, rgba(22, 163, 74, 0.85) 0%, rgba(21, 128, 61, 0.78) 100%);
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.40) 100%);
         }
         
         /* Transparent navbar - becomes solid on scroll */
@@ -316,6 +316,73 @@
         
         ::-webkit-scrollbar-thumb:hover {
             background: #15803d;
+        }
+        
+        /* Client Logo Scrolling Animation */
+        .logo-scroll-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            padding: 20px 0;
+        }
+        
+        .logo-scroll-track {
+            display: flex;
+            animation: scroll 30s linear infinite;
+            will-change: transform;
+        }
+        
+        .logo-scroll-track:hover {
+            animation-play-state: paused;
+        }
+        
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+        
+        .logo-card {
+            flex: 0 0 auto;
+            width: 200px;
+            height: 120px;
+            margin: 0 20px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .logo-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+        }
+        
+        .logo-img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            filter: grayscale(100%);
+            transition: filter 0.3s ease;
+        }
+        
+        .logo-card:hover .logo-img {
+            filter: grayscale(0%);
+        }
+        
+        @media (max-width: 768px) {
+            .logo-card {
+                width: 150px;
+                height: 100px;
+                margin: 0 15px;
+            }
         }
     </style>
     
@@ -869,6 +936,93 @@
                             <div>
                                 <h4 class="font-bold text-gray-900">David Kimani</h4>
                                 <p class="text-sm text-gray-600">Aquaculture Specialist</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trusted Partners Section -->
+        <section class="py-16 bg-gray-50 overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-3">Our Trusted Partners</h2>
+                    <p class="text-lg text-gray-600">Organizations that trust us with their agricultural solutions</p>
+                </div>
+                
+                <!-- Scrolling Logo Container -->
+                <div class="relative">
+                    <div class="logo-scroll-container">
+                        <div class="logo-scroll-track">
+                            <!-- First set of logos -->
+                            <div class="logo-card">
+                                <img src="assets/images/wcs.jpg" alt="WCS" class="logo-img">
+                            </div>
+                            <div class="logo-card">
+                                <img src="assets/images/world vision.jpg" alt="World Vision Tanzania" class="logo-img">
+                            </div>
+                            <div class="logo-card">
+                                <img src="assets/images/balton.png" alt="Balton Tanzania" class="logo-img">
+                            </div>
+                            <div class="logo-card">
+                                <img src="assets/images/equity.png" alt="Equity Bank" class="logo-img">
+                            </div>
+                            <div class="logo-card">
+                                <img src="assets/images/kilimanjaro plantation.png" alt="Kilimanjaro Plantation" class="logo-img">
+                            </div>
+                            <div class="logo-card">
+                                <img src="assets/images/one acre fund.png" alt="One Acre Fund" class="logo-img">
+                            </div>
+                            <div class="logo-card">
+                                <img src="assets/images/save the children.png" alt="Save the Children" class="logo-img">
+                            </div>
+                            <div class="logo-card">
+                                <img src="assets/images/serengeti breweries.jpg" alt="Serengeti Breweries" class="logo-img">
+                            </div>
+                            <div class="logo-card">
+                                <img src="assets/images/taha.png" alt="TAHA" class="logo-img">
+                            </div>
+                            <div class="logo-card">
+                                <img src="assets/images/tari.jpg" alt="TARI" class="logo-img">
+                            </div>
+                            <div class="logo-card">
+                                <img src="assets/images/tembo nickel.jpg" alt="Tembo Nickel" class="logo-img">
+                            </div>
+                            
+                            <!-- Duplicate set for seamless loop -->
+                            <div class="logo-card">
+                                <img src="assets/images/wcs.jpg" alt="WCS" class="logo-img">
+                            </div>
+                            <div class="logo-card">
+                                <img src="assets/images/world vision.jpg" alt="World Vision Tanzania" class="logo-img">
+                            </div>
+                            <div class="logo-card">
+                                <img src="assets/images/balton.png" alt="Balton Tanzania" class="logo-img">
+                            </div>
+                            <div class="logo-card">
+                                <img src="assets/images/equity.png" alt="Equity Bank" class="logo-img">
+                            </div>
+                            <div class="logo-card">
+                                <img src="assets/images/kilimanjaro plantation.png" alt="Kilimanjaro Plantation" class="logo-img">
+                            </div>
+                            <div class="logo-card">
+                                <img src="assets/images/one acre fund.png" alt="One Acre Fund" class="logo-img">
+                            </div>
+                            <div class="logo-card">
+                                <img src="assets/images/save the children.png" alt="Save the Children" class="logo-img">
+                            </div>
+                            <div class="logo-card">
+                                <img src="assets/images/serengeti breweries.jpg" alt="Serengeti Breweries" class="logo-img">
+                            </div>
+                            <div class="logo-card">
+                                <img src="assets/images/taha.png" alt="TAHA" class="logo-img">
+                            </div>
+                            <div class="logo-card">
+                                <img src="assets/images/tari.jpg" alt="TARI" class="logo-img">
+                            </div>
+                            <div class="logo-card">
+                                <img src="assets/images/tembo nickel.jpg" alt="Tembo Nickel" class="logo-img">
                             </div>
                         </div>
                     </div>
