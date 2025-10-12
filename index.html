@@ -27,7 +27,7 @@
       "@type": "Organization",
       "name": "Pro Agro Global Ltd",
       "alternateName": "Pro Agro Global",
-      "description": "Leading provider of modern agriculture products, facilities and technologies in East Africa. Specializing in irrigation systems, greenhouses, geomembranes, and civil engineering.",
+      "description": "Leading provider of modern agriculture products, facilities and technologies in East Africa.",
       "url": "https://www.proagroglobal.co.tz",
       "logo": "https://www.proagroglobal.co.tz/assets/images/logo.png",
       "slogan": "Together We Can Grow",
@@ -78,23 +78,11 @@
                             700: '#15803d',
                             800: '#166534',
                             900: '#14532d',
-                        },
-                        'earth-brown': {
-                            50: '#fdf8f6',
-                            100: '#f2e8e5',
-                            200: '#eaddd7',
-                            300: '#e0cfc5',
-                            400: '#d2bab0',
-                            500: '#bfa094',
-                            600: '#a18072',
-                            700: '#977669',
-                            800: '#846358',
-                            900: '#43302b',
                         }
                     },
                     fontFamily: {
-                        'sans': ['Lexend', 'system-ui', 'sans-serif'],
-                        'display': ['Lexend', 'system-ui', 'sans-serif'],
+                        'sans': ['Inter', 'system-ui', 'sans-serif'],
+                        'display': ['Inter', 'system-ui', 'sans-serif'],
                     }
                 }
             }
@@ -104,85 +92,31 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <!-- Custom CSS -->
     <style>
-        /* Custom animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        @keyframes slideInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-        
-        @keyframes slideInRight {
-            from {
-                opacity: 0;
-                transform: translateX(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-        
-        .fade-in-up {
-            animation: fadeInUp 0.8s ease-out;
-        }
-        
-        .slide-in-left {
-            animation: slideInLeft 0.8s ease-out;
-        }
-        
-        .slide-in-right {
-            animation: slideInRight 0.8s ease-out;
-        }
-        
         /* Smooth scrolling */
         html {
             scroll-behavior: smooth;
         }
         
-        /* Custom gradient */
-        .gradient-bg {
-            background: linear-gradient(135deg, #15803d 0%, #22c55e 50%, #16a34a 100%);
-        }
-        
-        /* Hero background */
-        .hero-bg {
-            background: linear-gradient(rgba(21, 128, 61, 0.8), rgba(34, 197, 94, 0.7)), url('assets/images/field.png');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
+        /* Hero gradient overlay */
+        .hero-overlay {
+            background: linear-gradient(135deg, rgba(22, 163, 74, 0.92) 0%, rgba(21, 128, 61, 0.85) 100%);
         }
         
         /* Card hover effects */
         .card-hover {
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
         .card-hover:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
         }
         
         /* Button animations */
@@ -196,182 +130,96 @@
             transform: translateY(-2px);
             box-shadow: 0 10px 25px rgba(22, 163, 74, 0.3);
         }
-
-        /* Loading Screen Styles */
-        .loading-gradient {
-            background: linear-gradient(135deg, #22c55e 0%, #16a34a 50%, #15803d 100%);
+        
+        .btn-outline {
+            transition: all 0.3s ease;
         }
         
-        .loading-dots {
-            display: inline-block;
+        .btn-outline:hover {
+            transform: translateY(-2px);
+        }
+        
+        /* Navbar on scroll */
+        .navbar-scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+        }
+        
+        /* Section title underline */
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #16a34a, #22c55e);
+            margin: 16px auto 0;
+        }
+        
+        /* Image overlay on hover */
+        .img-overlay {
             position: relative;
-            width: 80px;
-            height: 80px;
-        }
-        
-        .loading-dots div {
-            position: absolute;
-            top: 33px;
-            width: 13px;
-            height: 13px;
-            border-radius: 50%;
-            background: #fff;
-            animation-timing-function: cubic-bezier(0, 1, 1, 0);
-        }
-        
-        .loading-dots div:nth-child(1) {
-            left: 8px;
-            animation: dot1 0.6s infinite;
-        }
-        
-        .loading-dots div:nth-child(2) {
-            left: 8px;
-            animation: dot2 0.6s infinite;
-        }
-        
-        .loading-dots div:nth-child(3) {
-            left: 32px;
-            animation: dot2 0.6s infinite;
-        }
-        
-        .loading-dots div:nth-child(4) {
-            left: 56px;
-            animation: dot3 0.6s infinite;
-        }
-        
-        @keyframes dot1 {
-            0% { transform: scale(0); }
-            100% { transform: scale(1); }
-        }
-        
-        @keyframes dot3 {
-            0% { transform: scale(1); }
-            100% { transform: scale(0); }
-        }
-        
-        @keyframes dot2 {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(24px, 0); }
-        }
-        
-        @keyframes rotateLeaf {
-            0%, 100% { transform: rotate(0deg) scale(1); }
-            25% { transform: rotate(90deg) scale(1.1); }
-            50% { transform: rotate(180deg) scale(1); }
-            75% { transform: rotate(270deg) scale(1.1); }
-        }
-        
-        @keyframes floatUp {
-            0% { transform: translateY(0px); opacity: 0; }
-            50% { transform: translateY(-30px); opacity: 1; }
-            100% { transform: translateY(-60px); opacity: 0; }
-        }
-        
-        @keyframes wave {
-            0%, 100% { transform: scaleY(1); }
-            50% { transform: scaleY(1.5); }
-        }
-        
-        @keyframes growPlant {
-            0% { transform: scaleY(0) translateY(50%); }
-            50% { transform: scaleY(1) translateY(0); }
-            100% { transform: scaleY(0) translateY(50%); }
-        }
-        
-        @keyframes typing {
-            0% { width: 0; }
-            50% { width: 100%; }
-            100% { width: 0; }
-        }
-        
-        @keyframes blink-caret {
-            0%, 50% { border-color: #fff; }
-            51%, 100% { border-color: transparent; }
-        }
-        
-        .animate-rotate-leaf {
-            animation: rotateLeaf 4s ease-in-out infinite;
-        }
-        
-        .animate-float-up {
-            animation: floatUp 3s ease-in-out infinite;
-        }
-        
-        .animate-wave {
-            animation: wave ease-in-out infinite;
-        }
-        
-        .growing-plant {
-            animation: growPlant 3s ease-in-out infinite;
-        }
-        
-        .typewriter-text {
-            overflow: hidden;
-            border-right: 2px solid #fff;
-            white-space: nowrap;
-            animation: typing 3s steps(40, end) infinite, blink-caret 1s step-end infinite;
-        }
-        
-        .progress-bar {
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 10px;
             overflow: hidden;
         }
         
-        .progress-fill {
-            height: 6px;
-            background: linear-gradient(90deg, #fff, rgba(255, 255, 255, 0.8));
-            border-radius: 10px;
-            transition: width 0.3s ease;
-        }
-        
-        .floating-particles {
+        .img-overlay::before {
+            content: '';
             position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
-            overflow: hidden;
-        }
-        
-        .particle {
-            position: absolute;
-            background: rgba(255, 255, 255, 0.6);
-            border-radius: 50%;
-            animation: floatUp 3s ease-in-out infinite;
-        }
-        
-        .particle:nth-child(1) { left: 10%; animation-delay: 0s; width: 4px; height: 4px; }
-        .particle:nth-child(2) { left: 20%; animation-delay: 0.5s; width: 6px; height: 6px; }
-        .particle:nth-child(3) { left: 30%; animation-delay: 1s; width: 3px; height: 3px; }
-        .particle:nth-child(4) { left: 40%; animation-delay: 1.5s; width: 5px; height: 5px; }
-        .particle:nth-child(5) { left: 50%; animation-delay: 2s; width: 4px; height: 4px; }
-        .particle:nth-child(6) { left: 60%; animation-delay: 0.3s; width: 6px; height: 6px; }
-        .particle:nth-child(7) { left: 70%; animation-delay: 0.8s; width: 3px; height: 3px; }
-        .particle:nth-child(8) { left: 80%; animation-delay: 1.3s; width: 5px; height: 5px; }
-        .particle:nth-child(9) { left: 90%; animation-delay: 1.8s; width: 4px; height: 4px; }
-        
-        .fade-out {
-            animation: fadeOut 1s ease-out forwards;
-        }
-        
-        @keyframes fadeOut {
-            0% { opacity: 1; }
-            100% { opacity: 0; }
-        }
-        
-        #mainContent {
+            background: linear-gradient(135deg, rgba(22, 163, 74, 0.8), rgba(21, 128, 61, 0.8));
             opacity: 0;
-            transition: opacity 1s ease-in-out;
+            transition: opacity 0.4s ease;
+            z-index: 1;
         }
         
-        #mainContent.show {
+        .img-overlay:hover::before {
             opacity: 1;
         }
-    </style>
-    
-    <title>Pro Agro Global Ltd - Modern Agriculture Solutions | Together We Can Grow</title>
-    
-    <!-- Skip to Content Link Styling -->
-    <style>
+        
+        .img-overlay-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            z-index: 2;
+            transition: opacity 0.4s ease;
+        }
+        
+        .img-overlay:hover .img-overlay-content {
+            opacity: 1;
+        }
+        
+        /* Stats counter animation */
+        @keyframes countUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .stat-card {
+            animation: countUp 0.6s ease-out forwards;
+        }
+        
+        /* Fade in animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        /* Skip to content styling */
         .skip-link {
             position: absolute;
             top: -40px;
@@ -386,103 +234,42 @@
         .skip-link:focus {
             top: 0;
         }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #16a34a;
+            border-radius: 5px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #15803d;
+        }
     </style>
+    
+    <title>Pro Agro Global Ltd - Modern Agriculture Solutions | Together We Can Grow</title>
 </head>
-<body class="font-sans">
+<body class="font-sans antialiased">
     <!-- Skip to Content Link -->
     <a href="#main-content" class="skip-link">Skip to main content</a>
-    <!-- Loading Screen -->
-    <div id="loadingScreen" class="fixed inset-0 loading-gradient flex items-center justify-center z-50">
-        <!-- Floating Particles Background -->
-        <div class="floating-particles">
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-        </div>
-        
-        <!-- Main Loading Content -->
-        <div class="text-center text-white relative z-10">
-            <!-- Animated Logo -->
-            <div class="mb-8">
-                <div class="inline-flex items-center justify-center w-32 h-32 bg-white/20 rounded-full mb-6 backdrop-blur-sm">
-                    <i class="fas fa-leaf text-6xl text-white animate-rotate-leaf"></i>
-                </div>
-            </div>
-            
-            <!-- Company Name with Animation -->
-            <h1 class="text-4xl sm:text-6xl font-bold font-display mb-4 fade-in-up">
-                Pro Agro Global Limited
-            </h1>
-            
-            <!-- Tagline with Typewriter Effect -->
-            <div class="text-xl sm:text-2xl font-light mb-8 h-8">
-                <span class="typewriter-text">Together We Can Grow</span>
-            </div>
-            
-            <!-- Loading Animation -->
-            <div class="mb-8">
-                <div class="loading-dots">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                </div>
-            </div>
-            
-            <!-- Progress Bar -->
-            <div class="max-w-md mx-auto mb-8">
-                <div class="progress-bar">
-                    <div id="progressFill" class="progress-fill" style="width: 0%;"></div>
-                </div>
-            </div>
-            
-            <!-- Loading Text -->
-            <p id="loadingText" class="text-lg font-medium animate-pulse">
-                Preparing your agricultural solutions...
-            </p>
-            
-            <!-- Skip Button -->
-            <button id="skipButton" aria-label="Skip loading screen" class="mt-8 bg-white/20 text-white px-6 py-3 rounded-full font-medium backdrop-blur-sm hover:bg-white/30 hover:scale-105 transition-all duration-300 border-2 border-white/30 hover:border-white/50 shadow-lg">
-                <i class="fas fa-forward mr-2"></i>Skip Intro
-            </button>
-            <p class="text-sm text-white/80 mt-2 font-light">or press Space/Enter</p>
-        </div>
-        
-        <!-- Growing Plant Animation (Bottom Corner) -->
-        <div class="absolute bottom-10 right-10">
-            <i class="fas fa-seedling text-6xl text-white/30 growing-plant"></i>
-        </div>
-        
-        <!-- Irrigation Animation (Bottom Left) -->
-        <div class="absolute bottom-10 left-10">
-            <div class="flex items-end space-x-1">
-                <div class="w-2 h-8 bg-white/30 rounded animate-wave"></div>
-                <div class="w-2 h-12 bg-white/30 rounded animate-wave" style="animation-delay: 0.1s;"></div>
-                <div class="w-2 h-6 bg-white/30 rounded animate-wave" style="animation-delay: 0.2s;"></div>
-                <div class="w-2 h-10 bg-white/30 rounded animate-wave" style="animation-delay: 0.3s;"></div>
-                <div class="w-2 h-4 bg-white/30 rounded animate-wave" style="animation-delay: 0.4s;"></div>
-            </div>
-        </div>
-    </div>
 
-    <!-- Main Content Container -->
-    <div id="mainContent">
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 bg-white shadow-lg transition-all duration-300" id="navbar" aria-label="Main navigation">
+    <nav class="fixed w-full z-50 transition-all duration-300 bg-white shadow-sm" id="navbar" aria-label="Main navigation">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <!-- Logo -->
                 <div class="flex-shrink-0">
                     <a href="#home" class="flex items-center space-x-3">
-                        <img src="assets/images/logo.png" alt="Pro Agro Global Logo" class="h-12 w-auto">
-                        <div>
-                            <h1 class="text-xl font-bold text-gray-900 font-display">Pro Agro Global</h1>
+                        <img src="assets/images/logo.png" alt="Pro Agro Global Logo" class="h-14 w-auto">
+                        <div class="hidden sm:block">
+                            <h1 class="text-xl font-bold text-gray-900">Pro Agro Global</h1>
                             <p class="text-xs text-agro-green-600 font-medium">Together We Can Grow</p>
                         </div>
                     </a>
@@ -491,11 +278,10 @@
                 <!-- Desktop Navigation -->
                 <div class="hidden md:flex items-center space-x-8">
                     <a href="#home" class="text-gray-700 hover:text-agro-green-600 font-medium transition-colors duration-200">Home</a>
-                    <a href="pages/about.html" class="text-gray-700 hover:text-agro-green-600 font-medium transition-colors duration-200">About Us</a>
-                    <a href="pages/services.html" class="text-gray-700 hover:text-agro-green-600 font-medium transition-colors duration-200">Services</a>
-                    <a href="pages/gallery.html" class="text-gray-700 hover:text-agro-green-600 font-medium transition-colors duration-200">Gallery</a>
-                    <a href="pages/contact.html" class="text-gray-700 hover:text-agro-green-600 font-medium transition-colors duration-200">Contact</a>
-                    <a href="pages/gallery.html" class="btn-primary text-white px-6 py-2 rounded-full font-semibold">View our projects</a>
+                    <a href="#about" class="text-gray-700 hover:text-agro-green-600 font-medium transition-colors duration-200">About</a>
+                    <a href="#services" class="text-gray-700 hover:text-agro-green-600 font-medium transition-colors duration-200">Services</a>
+                    <a href="#projects" class="text-gray-700 hover:text-agro-green-600 font-medium transition-colors duration-200">Projects</a>
+                    <a href="#contact" class="btn-primary text-white px-6 py-2.5 rounded-full font-semibold text-sm">Get Quote</a>
                 </div>
                 
                 <!-- Mobile menu button -->
@@ -505,7 +291,7 @@
                             aria-label="Toggle mobile menu"
                             aria-expanded="false"
                             aria-controls="mobile-menu">
-                        <i class="fas fa-bars text-xl" aria-hidden="true"></i>
+                        <i class="fas fa-bars text-2xl" aria-hidden="true"></i>
                     </button>
                 </div>
             </div>
@@ -513,708 +299,635 @@
         
         <!-- Mobile Navigation -->
         <div id="mobile-menu" class="md:hidden bg-white border-t border-gray-200 hidden">
-            <div class="px-2 pt-2 pb-3 space-y-1">
-                <a href="#home" class="block px-3 py-2 text-gray-700 hover:text-agro-green-600 font-medium">Home</a>
-                <a href="pages/about.html" class="block px-3 py-2 text-gray-700 hover:text-agro-green-600 font-medium">About Us</a>
-                <a href="pages/services.html" class="block px-3 py-2 text-gray-700 hover:text-agro-green-600 font-medium">Services</a>
-                <a href="pages/gallery.html" class="block px-3 py-2 text-gray-700 hover:text-agro-green-600 font-medium">Gallery</a>
-                <a href="pages/contact.html" class="block px-3 py-2 text-gray-700 hover:text-agro-green-600 font-medium">Contact</a>
-                <a href="pages/gallery.html" class="block mx-3 mt-2 btn-primary text-white px-6 py-2 rounded-full font-semibold text-center">View our projects</a>
+            <div class="px-4 pt-2 pb-3 space-y-1">
+                <a href="#home" class="block px-3 py-3 text-gray-700 hover:text-agro-green-600 hover:bg-gray-50 rounded-lg font-medium">Home</a>
+                <a href="#about" class="block px-3 py-3 text-gray-700 hover:text-agro-green-600 hover:bg-gray-50 rounded-lg font-medium">About</a>
+                <a href="#services" class="block px-3 py-3 text-gray-700 hover:text-agro-green-600 hover:bg-gray-50 rounded-lg font-medium">Services</a>
+                <a href="#projects" class="block px-3 py-3 text-gray-700 hover:text-agro-green-600 hover:bg-gray-50 rounded-lg font-medium">Projects</a>
+                <a href="#contact" class="block mx-3 mt-2 btn-primary text-white px-6 py-3 rounded-full font-semibold text-center">Get Quote</a>
             </div>
         </div>
     </nav>
 
     <!-- Main Content -->
     <main id="main-content">
-    <!-- Hero Section -->
-    <section id="home" class="hero-bg min-h-screen flex items-center justify-center text-white relative">
-        <div class="absolute inset-0 bg-black opacity-20"></div>
-        <div class="relative z-10 w-full max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold font-display mb-6 fade-in-up">
-                Pro Agro Global Ltd
-            </h1>
-            <p class="text-xl sm:text-2xl lg:text-3xl mb-4 fade-in-up font-light" style="animation-delay: 0.2s">
-                Together We Can Grow
-            </p>
-            <p class="text-lg sm:text-xl mb-8 max-w-2xl mx-auto fade-in-up opacity-90" style="animation-delay: 0.4s">
-                Leading provider of modern agriculture products, facilities and technologies to facilitate modern farming practices across East Africa
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center fade-in-up" style="animation-delay: 0.6s">
-                <a href="pages/services.html" class="btn-primary text-white px-8 py-4 rounded-full font-semibold text-lg inline-flex items-center justify-center w-full sm:w-auto">
-                    <i class="fas fa-leaf mr-2"></i>
-                    Explore Our Services
-                </a>
-                <a href="pages/contact.html" class="bg-transparent border-2 border-white text-white hover:bg-white hover:text-agro-green-700 px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 inline-flex items-center justify-center w-full sm:w-auto">
-                    <i class="fas fa-phone mr-2"></i>
-                    Contact Us
-                </a>
+        <!-- Hero Section -->
+        <section id="home" class="relative min-h-screen flex items-center justify-center">
+            <!-- Background Image with Overlay -->
+            <div class="absolute inset-0 z-0">
+                <img src="assets/images/IMG-20251008-WA0069.jpg" alt="Modern Agriculture" class="w-full h-full object-cover">
+                <div class="absolute inset-0 hero-overlay"></div>
             </div>
-        </div>
-        
-        <!-- Scroll indicator -->
-        <div class="absolute bottom-8 left-0 right-0 flex justify-center animate-bounce">
-            <a href="#about" class="text-white flex flex-col items-center">
-                <span class="text-sm font-medium mb-1 tracking-wide">Explore More</span>
-                <i class="fas fa-chevron-down text-2xl"></i>
-            </a>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="py-20 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <!-- Section Header -->
-            <div class="text-center mb-16">
-                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 font-display mb-4">About Pro Agro Global</h2>
-                <div class="w-24 h-1 gradient-bg mx-auto mb-6"></div>
-                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
-                    A dynamic and leading company in the distribution of modern agriculture products, facilities and technologies with 9 years of vast experience
+            
+            <!-- Hero Content -->
+            <div class="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white py-32">
+                <h1 class="text-4xl sm:text-5xl lg:text-7xl font-bold mb-6 leading-tight fade-in-up">
+                    Modern Agriculture<br>Solutions for East Africa
+                </h1>
+                <p class="text-xl sm:text-2xl mb-10 max-w-3xl mx-auto font-light fade-in-up" style="animation-delay: 0.2s">
+                    Leading provider of irrigation systems, greenhouses, geomembranes, and civil engineering services
                 </p>
-            </div>
-            
-            <!-- Company Story -->
-            <div class="grid lg:grid-cols-2 gap-12 mb-16">
-                <div class="space-y-6">
-                    <h3 class="text-2xl font-bold text-gray-900 font-display">Our Story</h3>
-                    <p class="text-gray-600 leading-relaxed">
-                        Pro Agro Global Ltd was established with a purpose of supplying general purpose products and materials to major companies, SME's and organizations as well as supply and installation of modern agriculture products and facilities. In 9 years, the company has already gathered vast experience in its competitive edge to ensure customer satisfaction at the utmost level.
-                    </p>
-                    <p class="text-gray-600 leading-relaxed">
-                        We have a team of highly trained professionals with vast experience to go beyond the sale to ensure that our clients are completely satisfied with our products and services.
-                    </p>
-                    <div class="flex items-start space-x-4">
-                        <div class="flex-shrink-0">
-                            <div class="w-12 h-12 gradient-bg rounded-full flex items-center justify-center">
-                                <i class="fas fa-bullseye text-white"></i>
-                            </div>
-                        </div>
-                        <div>
-                            <h4 class="text-lg font-semibold text-gray-900 mb-2">Our Mission</h4>
-                            <p class="text-gray-600">To become the world-class supplier of products, facilities as well as technical solutions provider in East Africa, facilitating growth of modern agriculture.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="grid grid-cols-2 gap-6">
-                    <div class="text-center p-6 bg-white rounded-xl shadow-lg card-hover">
-                        <div class="w-16 h-16 gradient-bg rounded-full flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-project-diagram text-white text-2xl"></i>
-                        </div>
-                        <h4 class="text-3xl font-bold text-gray-900 mb-2">120+</h4>
-                        <p class="text-gray-600 font-medium">Projects Completed</p>
-                    </div>
-                    
-                    <div class="text-center p-6 bg-white rounded-xl shadow-lg card-hover">
-                        <div class="w-16 h-16 gradient-bg rounded-full flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-users text-white text-2xl"></i>
-                        </div>
-                        <h4 class="text-3xl font-bold text-gray-900 mb-2">247</h4>
-                        <p class="text-gray-600 font-medium">Happy Clients</p>
-                    </div>
-                    
-                    <div class="text-center p-6 bg-white rounded-xl shadow-lg card-hover">
-                        <div class="w-16 h-16 gradient-bg rounded-full flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-box text-white text-2xl"></i>
-                        </div>
-                        <h4 class="text-3xl font-bold text-gray-900 mb-2">6,500+</h4>
-                        <p class="text-gray-600 font-medium">Products Supplied</p>
-                    </div>
-                    
-                    <div class="text-center p-6 bg-white rounded-xl shadow-lg card-hover">
-                        <div class="w-16 h-16 gradient-bg rounded-full flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-trophy text-white text-2xl"></i>
-                        </div>
-                        <h4 class="text-3xl font-bold text-gray-900 mb-2">5</h4>
-                        <p class="text-gray-600 font-medium">Awards Earned</p>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Core Values -->
-            <div class="grid md:grid-cols-4 gap-8">
-                <div class="text-center">
-                    <div class="w-16 h-16 gradient-bg rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-check-circle text-white text-2xl"></i>
-                    </div>
-                    <h4 class="text-lg font-semibold text-gray-900 mb-2">Compliance</h4>
-                    <p class="text-gray-600 text-sm">We ensure compliance in everything we do to secure our professionalism</p>
-                </div>
-                
-                <div class="text-center">
-                    <div class="w-16 h-16 gradient-bg rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-chart-line text-white text-2xl"></i>
-                    </div>
-                    <h4 class="text-lg font-semibold text-gray-900 mb-2">Productivity</h4>
-                    <p class="text-gray-600 text-sm">We ensure productivity for our clients' investment for their businesses</p>
-                </div>
-                
-                <div class="text-center">
-                    <div class="w-16 h-16 gradient-bg rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-shield-alt text-white text-2xl"></i>
-                    </div>
-                    <h4 class="text-lg font-semibold text-gray-900 mb-2">Safety</h4>
-                    <p class="text-gray-600 text-sm">We ensure safety investment to our clients' business atmospheres</p>
-                </div>
-                
-                <div class="text-center">
-                    <div class="w-16 h-16 gradient-bg rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-expand-arrows-alt text-white text-2xl"></i>
-                    </div>
-                    <h4 class="text-lg font-semibold text-gray-900 mb-2">Flexibility</h4>
-                    <p class="text-gray-600 text-sm">We are more flexible with our provisions for greater degrees of choices</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <!-- Section Header -->
-            <div class="text-center mb-16">
-                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 font-display mb-4">Our Core Services</h2>
-                <div class="w-24 h-1 gradient-bg mx-auto mb-6"></div>
-                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
-                    Providing value for money products and services with innovative solutions to complex challenges
-                </p>
-            </div>
-            
-            <!-- Services Grid -->
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-                <!-- Irrigation Systems -->
-                <div class="bg-white rounded-xl shadow-lg p-8 card-hover border border-gray-100">
-                    <div class="w-16 h-16 gradient-bg rounded-full flex items-center justify-center mb-6">
-                        <i class="fas fa-tint text-white text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-4 font-display">Irrigation Systems</h3>
-                    <p class="text-gray-600 mb-4">
-                        Our expertise and experience in modern irrigation covers both supply and installations of irrigation systems and facilities to SME's, large corporates and organizations.
-                    </p>
-                    <a href="#contact" class="text-agro-green-600 font-semibold hover:text-agro-green-700 transition-colors">
-                        Learn More <i class="fas fa-arrow-right ml-1"></i>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center fade-in-up" style="animation-delay: 0.4s">
+                    <a href="#services" class="bg-white text-agro-green-700 hover:bg-gray-100 px-8 py-4 rounded-full font-semibold text-lg inline-flex items-center justify-center w-full sm:w-auto transition-all shadow-lg">
+                        <i class="fas fa-seedling mr-2"></i>
+                        Our Services
                     </a>
-                </div>
-                
-                <!-- Greenhouses -->
-                <div class="bg-white rounded-xl shadow-lg p-8 card-hover border border-gray-100">
-                    <div class="w-16 h-16 gradient-bg rounded-full flex items-center justify-center mb-6">
-                        <i class="fas fa-seedling text-white text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-4 font-display">Greenhouses</h3>
-                    <p class="text-gray-600 mb-4">
-                        Providing high-end facilities and products for greenhouses and screenhouses of both galvanized and wooden frames. Our obsession is on quality and durability.
-                    </p>
-                    <a href="#contact" class="text-agro-green-600 font-semibold hover:text-agro-green-700 transition-colors">
-                        Learn More <i class="fas fa-arrow-right ml-1"></i>
-                    </a>
-                </div>
-                
-                <!-- Geomembranes/Liners -->
-                <div class="bg-white rounded-xl shadow-lg p-8 card-hover border border-gray-100">
-                    <div class="w-16 h-16 gradient-bg rounded-full flex items-center justify-center mb-6">
-                        <i class="fas fa-layer-group text-white text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-4 font-display">Geomembranes/Liners</h3>
-                    <p class="text-gray-600 mb-4">
-                        Geomembranes are highly considered for water reservoirs in irrigation projects as well as ponds in fish farming. We work with HDPE lining materials.
-                    </p>
-                    <a href="#contact" class="text-agro-green-600 font-semibold hover:text-agro-green-700 transition-colors">
-                        Learn More <i class="fas fa-arrow-right ml-1"></i>
-                    </a>
-                </div>
-                
-                <!-- Civil Engineering -->
-                <div class="bg-white rounded-xl shadow-lg p-8 card-hover border border-gray-100">
-                    <div class="w-16 h-16 gradient-bg rounded-full flex items-center justify-center mb-6">
-                        <i class="fas fa-hard-hat text-white text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-4 font-display">Civil Engineering</h3>
-                    <p class="text-gray-600 mb-4">
-                        Comprehensive civil engineering solutions including water drilling, construction, and infrastructure development for agricultural and commercial projects.
-                    </p>
-                    <a href="#contact" class="text-agro-green-600 font-semibold hover:text-agro-green-700 transition-colors">
-                        Learn More <i class="fas fa-arrow-right ml-1"></i>
+                    <a href="#contact" class="btn-outline border-2 border-white text-white hover:bg-white hover:text-agro-green-700 px-8 py-4 rounded-full font-semibold text-lg inline-flex items-center justify-center w-full sm:w-auto">
+                        <i class="fas fa-phone mr-2"></i>
+                        Contact Us
                     </a>
                 </div>
             </div>
             
-            <!-- Call to Action -->
-            <div class="text-center">
-                <a href="#contact" class="btn-primary text-white px-8 py-4 rounded-full font-semibold text-lg inline-flex items-center">
-                    <i class="fas fa-quote-right mr-2"></i>
-                    Request a Quote
+            <!-- Scroll Indicator -->
+            <div class="absolute bottom-8 left-0 right-0 flex justify-center z-10 animate-bounce">
+                <a href="#about" class="text-white flex flex-col items-center">
+                    <span class="text-sm font-medium mb-2 tracking-wide">Scroll Down</span>
+                    <i class="fas fa-chevron-down text-2xl"></i>
                 </a>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Gallery Section -->
-    <section id="gallery" class="py-20 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <!-- Section Header -->
-            <div class="text-center mb-16">
-                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 font-display mb-4">Our Work Gallery</h2>
-                <div class="w-24 h-1 gradient-bg mx-auto mb-6"></div>
-                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
-                    Showcasing our expertise through completed projects and installations
-                </p>
-            </div>
-            
-            <!-- Gallery Grid -->
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-white rounded-xl overflow-hidden shadow-lg card-hover">
-                    <div class="relative overflow-hidden">
-                        <img src="assets/images/greenhouses.jpg" alt="Modern Greenhouses" class="w-full h-64 object-cover transition-transform duration-300 hover:scale-110" width="800" height="600" loading="lazy">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
-                        <div class="absolute bottom-4 left-4 text-white opacity-0 hover:opacity-100 transition-opacity duration-300">
-                            <h3 class="text-lg font-semibold">Modern Greenhouses</h3>
-                            <p class="text-sm">High-quality greenhouse installations</p>
-                        </div>
-                    </div>
+        <!-- Welcome Section -->
+        <section class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-4 section-title">Welcome to Pro Agro Global</h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                        Pro Agro Global Ltd is a dynamic and leading company in the distribution of modern agriculture products, 
+                        facilities and technologies with 9 years of vast experience in facilitating modern farming practices across East Africa
+                    </p>
                 </div>
                 
-                <div class="bg-white rounded-xl overflow-hidden shadow-lg card-hover">
-                    <div class="relative overflow-hidden">
-                        <img src="assets/images/field.png" alt="Agricultural Field" class="w-full h-64 object-cover transition-transform duration-300 hover:scale-110" width="800" height="600" loading="lazy">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
-                        <div class="absolute bottom-4 left-4 text-white opacity-0 hover:opacity-100 transition-opacity duration-300">
-                            <h3 class="text-lg font-semibold">Agricultural Fields</h3>
-                            <p class="text-sm">Modern farming techniques</p>
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <!-- Image -->
+                    <div class="relative">
+                        <img src="assets/images/IMG-20251008-WA0070.jpg" alt="Our Facilities" class="w-full h-96 object-cover rounded-2xl shadow-2xl">
+                        <div class="absolute -bottom-6 -right-6 bg-agro-green-600 text-white p-8 rounded-2xl shadow-xl">
+                            <div class="text-5xl font-bold">9+</div>
+                            <div class="text-lg font-medium mt-2">Years Experience</div>
                         </div>
                     </div>
-                </div>
-                
-                <div class="bg-white rounded-xl overflow-hidden shadow-lg card-hover">
-                    <div class="relative overflow-hidden">
-                        <img src="assets/images/fishpond.png" alt="Fish Farming Pond" class="w-full h-64 object-cover transition-transform duration-300 hover:scale-110" width="800" height="600" loading="lazy">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
-                        <div class="absolute bottom-4 left-4 text-white opacity-0 hover:opacity-100 transition-opacity duration-300">
-                            <h3 class="text-lg font-semibold">Fish Farming Ponds</h3>
-                            <p class="text-sm">Geomembrane liner installations</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="bg-white rounded-xl overflow-hidden shadow-lg card-hover md:col-span-2">
-                    <div class="relative overflow-hidden">
-                        <img src="assets/images/extrusion.jpg" alt="Pipe Extrusion" class="w-full h-64 object-cover transition-transform duration-300 hover:scale-110" width="1200" height="600" loading="lazy">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
-                        <div class="absolute bottom-4 left-4 text-white opacity-0 hover:opacity-100 transition-opacity duration-300">
-                            <h3 class="text-lg font-semibold">Irrigation Infrastructure</h3>
-                            <p class="text-sm">Advanced irrigation pipe systems</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="bg-white rounded-xl overflow-hidden shadow-lg card-hover">
-                    <div class="relative overflow-hidden">
-                        <div class="w-full h-64 gradient-bg flex items-center justify-center">
-                            <div class="text-center text-white">
-                                <i class="fas fa-camera text-4xl mb-4"></i>
-                                <h3 class="text-lg font-semibold mb-2">More Projects</h3>
-                                <p class="text-sm">View our complete portfolio</p>
-                                <a href="#contact" class="inline-block mt-4 bg-white text-agro-green-600 px-4 py-2 rounded-full text-sm font-semibold hover:bg-gray-100 transition-colors">
-                                    Contact Us
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Client Testimonials Section -->
-    <section class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 font-display mb-4">What Our Clients Say</h2>
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Real feedback from satisfied customers who trust us with their agricultural projects</p>
-            </div>
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Testimonial 1 -->
-                <div class="bg-gray-50 p-8 rounded-xl card-hover">
-                    <div class="flex items-center mb-4">
-                        <div class="flex text-yellow-400 mr-2">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <span class="text-sm text-gray-600">(5.0)</span>
-                    </div>
-                    <p class="text-gray-700 mb-6 italic leading-relaxed">"Pro Agro Global delivered an outstanding greenhouse facility that exceeded our expectations. The quality of materials, professional installation, and ongoing support have been exceptional. Our crop yields have increased by 40% since the installation."</p>
-                    <div class="flex items-center">
-                        <div class="w-12 h-12 bg-agro-green-600 rounded-full flex items-center justify-center text-white font-bold mr-4">
-                            JM
-                        </div>
-                        <div>
-                            <h4 class="font-semibold text-gray-900">John Mwangi</h4>
-                            <p class="text-sm text-gray-600">Commercial Farmer, Arusha</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Testimonial 2 -->
-                <div class="bg-gray-50 p-8 rounded-xl card-hover">
-                    <div class="flex items-center mb-4">
-                        <div class="flex text-yellow-400 mr-2">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <span class="text-sm text-gray-600">(5.0)</span>
-                    </div>
-                    <p class="text-gray-700 mb-6 italic leading-relaxed">"The irrigation system has completely transformed our farming productivity. The automated scheduling and water efficiency are remarkable. Professional service from initial consultation through to final installation and training."</p>
-                    <div class="flex items-center">
-                        <div class="w-12 h-12 bg-agro-green-600 rounded-full flex items-center justify-center text-white font-bold mr-4">
-                            SM
-                        </div>
-                        <div>
-                            <h4 class="font-semibold text-gray-900">Sarah Mbeki</h4>
-                            <p class="text-sm text-gray-600">Agricultural Cooperative Leader</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Testimonial 3 -->
-                <div class="bg-gray-50 p-8 rounded-xl card-hover">
-                    <div class="flex items-center mb-4">
-                        <div class="flex text-yellow-400 mr-2">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <span class="text-sm text-gray-600">(5.0)</span>
-                    </div>
-                    <p class="text-gray-700 mb-6 italic leading-relaxed">"Excellent geomembrane installation for our fish ponds. The team demonstrated exceptional expertise and professionalism. Quality materials and expert workmanship throughout the entire project. Highly recommended!"</p>
-                    <div class="flex items-center">
-                        <div class="w-12 h-12 bg-agro-green-600 rounded-full flex items-center justify-center text-white font-bold mr-4">
-                            DK
-                        </div>
-                        <div>
-                            <h4 class="font-semibold text-gray-900">David Kimani</h4>
-                            <p class="text-sm text-gray-600">Aquaculture Specialist</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Testimonial 4 -->
-                <div class="bg-gray-50 p-8 rounded-xl card-hover">
-                    <div class="flex items-center mb-4">
-                        <div class="flex text-yellow-400 mr-2">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <span class="text-sm text-gray-600">(5.0)</span>
-                    </div>
-                    <p class="text-gray-700 mb-6 italic leading-relaxed">"Pro Agro Global completed our large-scale irrigation project on time and within budget. Their technical expertise and commitment to quality is unmatched. The system performance has been outstanding."</p>
-                    <div class="flex items-center">
-                        <div class="w-12 h-12 bg-agro-green-600 rounded-full flex items-center justify-center text-white font-bold mr-4">
-                            AM
-                        </div>
-                        <div>
-                            <h4 class="font-semibold text-gray-900">Agnes Mutua</h4>
-                            <p class="text-sm text-gray-600">Farm Manager, Moshi</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Testimonial 5 -->
-                <div class="bg-gray-50 p-8 rounded-xl card-hover">
-                    <div class="flex items-center mb-4">
-                        <div class="flex text-yellow-400 mr-2">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <span class="text-sm text-gray-600">(5.0)</span>
-                    </div>
-                    <p class="text-gray-700 mb-6 italic leading-relaxed">"The greenhouse construction was handled with utmost professionalism. From design to installation, every detail was carefully managed. The climate control system works perfectly. Excellent value for money."</p>
-                    <div class="flex items-center">
-                        <div class="w-12 h-12 bg-agro-green-600 rounded-full flex items-center justify-center text-white font-bold mr-4">
-                            RN
-                        </div>
-                        <div>
-                            <h4 class="font-semibold text-gray-900">Robert Njoroge</h4>
-                            <p class="text-sm text-gray-600">Horticulture Producer</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Testimonial 6 -->
-                <div class="bg-gray-50 p-8 rounded-xl card-hover">
-                    <div class="flex items-center mb-4">
-                        <div class="flex text-yellow-400 mr-2">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <span class="text-sm text-gray-600">(5.0)</span>
-                    </div>
-                    <p class="text-gray-700 mb-6 italic leading-relaxed">"Outstanding civil engineering work for our farm infrastructure. The team's attention to detail and quality standards are impressive. They delivered exactly what was promised, on schedule."</p>
-                    <div class="flex items-center">
-                        <div class="w-12 h-12 bg-agro-green-600 rounded-full flex items-center justify-center text-white font-bold mr-4">
-                            LW
-                        </div>
-                        <div>
-                            <h4 class="font-semibold text-gray-900">Lucy Wanjiku</h4>
-                            <p class="text-sm text-gray-600">Agricultural Enterprise Owner</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Testimonial CTA -->
-            <div class="text-center mt-12">
-                <div class="bg-agro-green-50 rounded-2xl p-8 inline-block">
-                    <h3 class="text-2xl font-bold text-gray-900 mb-4 font-display">Join Our Happy Clients</h3>
-                    <p class="text-gray-600 mb-6 max-w-2xl">Experience the same level of excellence and professionalism that our clients have come to trust. Let's discuss your agricultural project today.</p>
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                        <a href="pages/contact.html" class="btn-primary text-white px-6 py-3 rounded-full font-semibold inline-flex items-center justify-center">
-                            <i class="fas fa-phone mr-2"></i>
-                            Get Your Quote
-                        </a>
-                        <a href="pages/gallery.html" class="border-2 border-agro-green-600 text-agro-green-600 hover:bg-agro-green-600 hover:text-white px-6 py-3 rounded-full font-semibold transition-colors inline-flex items-center justify-center">
-                            <i class="fas fa-images mr-2"></i>
-                            View Our Work
+                    
+                    <!-- Content -->
+                    <div class="space-y-6">
+                        <h3 class="text-3xl font-bold text-gray-900">Driving Agricultural Excellence</h3>
+                        <p class="text-gray-600 leading-relaxed text-lg">
+                            We specialize in supplying and installing modern agriculture products and facilities to major companies, 
+                            SMEs, and organizations. Our commitment to quality and customer satisfaction has made us a trusted partner 
+                            in agricultural development.
+                        </p>
+                        <p class="text-gray-600 leading-relaxed text-lg">
+                            With a team of highly trained professionals, we go beyond the sale to ensure our clients are completely 
+                            satisfied with our products and services. Our expertise spans irrigation systems, greenhouse construction, 
+                            geomembrane installation, and comprehensive civil engineering solutions.
+                        </p>
+                        <a href="#about" class="inline-flex items-center text-agro-green-600 font-semibold text-lg hover:text-agro-green-700 transition-colors">
+                            Learn More About Us
+                            <i class="fas fa-arrow-right ml-2"></i>
                         </a>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <!-- Section Header -->
-            <div class="text-center mb-16">
-                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 font-display mb-4">Get In Touch</h2>
-                <div class="w-24 h-1 gradient-bg mx-auto mb-6"></div>
-                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
-                    Ready to start your next agricultural project? Contact us today for a consultation
-                </p>
+        <!-- Stats Section -->
+        <section id="about" class="py-20 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="bg-white rounded-2xl shadow-lg p-8 text-center card-hover stat-card">
+                        <div class="w-16 h-16 bg-agro-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-project-diagram text-agro-green-600 text-3xl"></i>
+                        </div>
+                        <h4 class="text-5xl font-bold text-gray-900 mb-2">120+</h4>
+                        <p class="text-gray-600 font-medium text-lg">Projects Completed</p>
+                    </div>
+                    
+                    <div class="bg-white rounded-2xl shadow-lg p-8 text-center card-hover stat-card" style="animation-delay: 0.1s">
+                        <div class="w-16 h-16 bg-agro-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-users text-agro-green-600 text-3xl"></i>
+                        </div>
+                        <h4 class="text-5xl font-bold text-gray-900 mb-2">247</h4>
+                        <p class="text-gray-600 font-medium text-lg">Happy Clients</p>
+                    </div>
+                    
+                    <div class="bg-white rounded-2xl shadow-lg p-8 text-center card-hover stat-card" style="animation-delay: 0.2s">
+                        <div class="w-16 h-16 bg-agro-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-box text-agro-green-600 text-3xl"></i>
+                        </div>
+                        <h4 class="text-5xl font-bold text-gray-900 mb-2">6,500+</h4>
+                        <p class="text-gray-600 font-medium text-lg">Products Supplied</p>
+                    </div>
+                    
+                    <div class="bg-white rounded-2xl shadow-lg p-8 text-center card-hover stat-card" style="animation-delay: 0.3s">
+                        <div class="w-16 h-16 bg-agro-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-trophy text-agro-green-600 text-3xl"></i>
+                        </div>
+                        <h4 class="text-5xl font-bold text-gray-900 mb-2">5</h4>
+                        <p class="text-gray-600 font-medium text-lg">Awards Earned</p>
+                    </div>
+                </div>
             </div>
-            
-            <div class="grid lg:grid-cols-2 gap-12">
-                <!-- Contact Form -->
-                <div class="bg-gray-50 rounded-xl p-8">
-                    <h3 class="text-2xl font-bold text-gray-900 mb-6 font-display">Send us a Message</h3>
-                    <form id="contactForm" class="space-y-6">
-                        <div class="grid md:grid-cols-2 gap-4">
-                            <div>
-                                <label for="firstName" class="block text-sm font-medium text-gray-700 mb-2">First Name</label>
-                                <input type="text" id="firstName" name="firstName" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-agro-green-500 focus:border-transparent transition-all">
-                            </div>
-                            <div>
-                                <label for="lastName" class="block text-sm font-medium text-gray-700 mb-2">Last Name</label>
-                                <input type="text" id="lastName" name="lastName" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-agro-green-500 focus:border-transparent transition-all">
-                            </div>
-                        </div>
-                        
-                        <div>
-                            <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
-                            <input type="email" id="email" name="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-agro-green-500 focus:border-transparent transition-all">
-                        </div>
-                        
-                        <div>
-                            <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
-                            <input type="tel" id="phone" name="phone" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-agro-green-500 focus:border-transparent transition-all">
-                        </div>
-                        
-                        <div>
-                            <label for="service" class="block text-sm font-medium text-gray-700 mb-2">Service of Interest</label>
-                            <select id="service" name="service" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-agro-green-500 focus:border-transparent transition-all">
-                                <option value="">Select a service</option>
-                                <option value="irrigation">Irrigation Systems</option>
-                                <option value="greenhouses">Greenhouses</option>
-                                <option value="geomembranes">Geomembranes/Liners</option>
-                                <option value="civil">Civil Engineering</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
-                        
-                        <div>
-                            <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Message</label>
-                            <textarea id="message" name="message" rows="4" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-agro-green-500 focus:border-transparent transition-all resize-none"></textarea>
-                        </div>
-                        
-                        <button type="submit" class="w-full btn-primary text-white py-4 rounded-lg font-semibold text-lg">
-                            <i class="fas fa-paper-plane mr-2"></i>
-                            Send Message
-                        </button>
-                    </form>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-4 section-title">What We Do</h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                        Comprehensive agricultural solutions tailored to your needs
+                    </p>
                 </div>
                 
-                <!-- Contact Information -->
-                <div class="space-y-8">
-                    <div>
-                        <h3 class="text-2xl font-bold text-gray-900 mb-6 font-display">Contact Information</h3>
-                        
-                        <div class="space-y-6">
-                            <div class="flex items-start space-x-4">
-                                <div class="w-12 h-12 gradient-bg rounded-full flex items-center justify-center flex-shrink-0">
-                                    <i class="fas fa-map-marker-alt text-white"></i>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Irrigation Systems -->
+                    <div class="group bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
+                        <div class="img-overlay">
+                            <img src="assets/images/IMG-20251008-WA0071.jpg" alt="Irrigation Systems" class="w-full h-64 object-cover">
+                            <div class="img-overlay-content text-center text-white">
+                                <i class="fas fa-tint text-5xl mb-2"></i>
+                                <p class="font-semibold">View Details</p>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <div class="w-14 h-14 bg-agro-green-100 rounded-full flex items-center justify-center mb-4">
+                                <i class="fas fa-tint text-agro-green-600 text-2xl"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-900 mb-3">Irrigation Systems</h3>
+                            <p class="text-gray-600 leading-relaxed mb-4">
+                                Expert supply and installation of modern irrigation systems for all scales of agricultural operations.
+                            </p>
+                            <a href="#contact" class="inline-flex items-center text-agro-green-600 font-semibold hover:text-agro-green-700 transition-colors">
+                                Learn More
+                                <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Greenhouses -->
+                    <div class="group bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
+                        <div class="img-overlay">
+                            <img src="assets/images/IMG-20251008-WA0072.jpg" alt="Greenhouses" class="w-full h-64 object-cover">
+                            <div class="img-overlay-content text-center text-white">
+                                <i class="fas fa-seedling text-5xl mb-2"></i>
+                                <p class="font-semibold">View Details</p>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <div class="w-14 h-14 bg-agro-green-100 rounded-full flex items-center justify-center mb-4">
+                                <i class="fas fa-seedling text-agro-green-600 text-2xl"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-900 mb-3">Greenhouses</h3>
+                            <p class="text-gray-600 leading-relaxed mb-4">
+                                High-quality greenhouse facilities with both galvanized and wooden frames for optimal crop production.
+                            </p>
+                            <a href="#contact" class="inline-flex items-center text-agro-green-600 font-semibold hover:text-agro-green-700 transition-colors">
+                                Learn More
+                                <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Geomembranes -->
+                    <div class="group bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
+                        <div class="img-overlay">
+                            <img src="assets/images/IMG-20251008-WA0073.jpg" alt="Geomembranes" class="w-full h-64 object-cover">
+                            <div class="img-overlay-content text-center text-white">
+                                <i class="fas fa-layer-group text-5xl mb-2"></i>
+                                <p class="font-semibold">View Details</p>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <div class="w-14 h-14 bg-agro-green-100 rounded-full flex items-center justify-center mb-4">
+                                <i class="fas fa-layer-group text-agro-green-600 text-2xl"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-900 mb-3">Geomembranes</h3>
+                            <p class="text-gray-600 leading-relaxed mb-4">
+                                Professional HDPE lining solutions for water reservoirs, irrigation projects, and fish farming ponds.
+                            </p>
+                            <a href="#contact" class="inline-flex items-center text-agro-green-600 font-semibold hover:text-agro-green-700 transition-colors">
+                                Learn More
+                                <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Civil Engineering -->
+                    <div class="group bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
+                        <div class="img-overlay">
+                            <img src="assets/images/IMG-20251008-WA0074.jpg" alt="Civil Engineering" class="w-full h-64 object-cover">
+                            <div class="img-overlay-content text-center text-white">
+                                <i class="fas fa-hard-hat text-5xl mb-2"></i>
+                                <p class="font-semibold">View Details</p>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <div class="w-14 h-14 bg-agro-green-100 rounded-full flex items-center justify-center mb-4">
+                                <i class="fas fa-hard-hat text-agro-green-600 text-2xl"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-900 mb-3">Civil Engineering</h3>
+                            <p class="text-gray-600 leading-relaxed mb-4">
+                                Complete civil engineering solutions including water drilling, construction, and infrastructure development.
+                            </p>
+                            <a href="#contact" class="inline-flex items-center text-agro-green-600 font-semibold hover:text-agro-green-700 transition-colors">
+                                Learn More
+                                <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Core Values Section -->
+        <section class="py-20 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-4 section-title">Our Core Values</h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                        The principles that guide everything we do
+                    </p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="bg-white rounded-2xl p-8 text-center shadow-lg card-hover">
+                        <div class="w-20 h-20 bg-agro-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-check-circle text-agro-green-600 text-4xl"></i>
+                        </div>
+                        <h4 class="text-2xl font-bold text-gray-900 mb-3">Compliance</h4>
+                        <p class="text-gray-600 leading-relaxed">
+                            Ensuring compliance in everything we do to secure our professionalism and industry standards
+                        </p>
+                    </div>
+                    
+                    <div class="bg-white rounded-2xl p-8 text-center shadow-lg card-hover">
+                        <div class="w-20 h-20 bg-agro-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-chart-line text-agro-green-600 text-4xl"></i>
+                        </div>
+                        <h4 class="text-2xl font-bold text-gray-900 mb-3">Productivity</h4>
+                        <p class="text-gray-600 leading-relaxed">
+                            Maximizing productivity and return on investment for our clients' businesses
+                        </p>
+                    </div>
+                    
+                    <div class="bg-white rounded-2xl p-8 text-center shadow-lg card-hover">
+                        <div class="w-20 h-20 bg-agro-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-shield-alt text-agro-green-600 text-4xl"></i>
+                        </div>
+                        <h4 class="text-2xl font-bold text-gray-900 mb-3">Safety</h4>
+                        <p class="text-gray-600 leading-relaxed">
+                            Prioritizing safety in all our installations and maintaining secure business environments
+                        </p>
+                    </div>
+                    
+                    <div class="bg-white rounded-2xl p-8 text-center shadow-lg card-hover">
+                        <div class="w-20 h-20 bg-agro-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-expand-arrows-alt text-agro-green-600 text-4xl"></i>
+                        </div>
+                        <h4 class="text-2xl font-bold text-gray-900 mb-3">Flexibility</h4>
+                        <p class="text-gray-600 leading-relaxed">
+                            Offering flexible solutions and choices to meet diverse client needs
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Gallery Section -->
+        <section id="projects" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-4 section-title">Our Projects</h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                        Showcasing excellence through completed installations and ongoing projects
+                    </p>
+                </div>
+                
+                <!-- Gallery Grid -->
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+                    <div class="img-overlay rounded-2xl overflow-hidden shadow-lg" style="height: 300px;">
+                        <img src="assets/images/IMG-20251008-WA0075.jpg" alt="Project 1" class="w-full h-full object-cover">
+                        <div class="img-overlay-content text-center text-white">
+                            <h3 class="text-2xl font-bold mb-2">Greenhouse Installation</h3>
+                            <p>Modern facility setup</p>
+                        </div>
+                    </div>
+                    
+                    <div class="img-overlay rounded-2xl overflow-hidden shadow-lg" style="height: 300px;">
+                        <img src="assets/images/IMG-20251008-WA0076.jpg" alt="Project 2" class="w-full h-full object-cover">
+                        <div class="img-overlay-content text-center text-white">
+                            <h3 class="text-2xl font-bold mb-2">Irrigation System</h3>
+                            <p>Drip irrigation network</p>
+                        </div>
+                    </div>
+                    
+                    <div class="img-overlay rounded-2xl overflow-hidden shadow-lg" style="height: 300px;">
+                        <img src="assets/images/IMG-20251008-WA0077.jpg" alt="Project 3" class="w-full h-full object-cover">
+                        <div class="img-overlay-content text-center text-white">
+                            <h3 class="text-2xl font-bold mb-2">Fish Pond Liner</h3>
+                            <p>Geomembrane installation</p>
+                        </div>
+                    </div>
+                    
+                    <div class="img-overlay rounded-2xl overflow-hidden shadow-lg" style="height: 300px;">
+                        <img src="assets/images/IMG-20251008-WA0078.jpg" alt="Project 4" class="w-full h-full object-cover">
+                        <div class="img-overlay-content text-center text-white">
+                            <h3 class="text-2xl font-bold mb-2">Agricultural Field</h3>
+                            <p>Complete field setup</p>
+                        </div>
+                    </div>
+                    
+                    <div class="img-overlay rounded-2xl overflow-hidden shadow-lg" style="height: 300px;">
+                        <img src="assets/images/IMG-20251008-WA0079.jpg" alt="Project 5" class="w-full h-full object-cover">
+                        <div class="img-overlay-content text-center text-white">
+                            <h3 class="text-2xl font-bold mb-2">Water Reservoir</h3>
+                            <p>Storage solution</p>
+                        </div>
+                    </div>
+                    
+                    <div class="img-overlay rounded-2xl overflow-hidden shadow-lg" style="height: 300px;">
+                        <img src="assets/images/IMG-20251008-WA0080.jpg" alt="Project 6" class="w-full h-full object-cover">
+                        <div class="img-overlay-content text-center text-white">
+                            <h3 class="text-2xl font-bold mb-2">Infrastructure Work</h3>
+                            <p>Civil engineering</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center">
+                    <a href="#contact" class="btn-primary text-white px-8 py-4 rounded-full font-semibold text-lg inline-flex items-center">
+                        <i class="fas fa-images mr-2"></i>
+                        View Complete Portfolio
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="py-20 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-4 section-title">Client Testimonials</h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                        What our satisfied clients say about our services
+                    </p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Testimonial 1 -->
+                    <div class="bg-white rounded-2xl p-8 shadow-lg card-hover">
+                        <div class="flex text-yellow-400 mb-4">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="text-gray-700 mb-6 leading-relaxed italic">
+                            "Exceptional greenhouse installation. The quality and professionalism exceeded our expectations. Our yields increased by 40%."
+                        </p>
+                        <div class="flex items-center">
+                            <div class="w-14 h-14 bg-agro-green-600 rounded-full flex items-center justify-center text-white font-bold text-xl mr-4">
+                                JM
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900">John Mwangi</h4>
+                                <p class="text-sm text-gray-600">Commercial Farmer</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 2 -->
+                    <div class="bg-white rounded-2xl p-8 shadow-lg card-hover">
+                        <div class="flex text-yellow-400 mb-4">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="text-gray-700 mb-6 leading-relaxed italic">
+                            "The irrigation system transformed our productivity completely. Professional service from start to finish."
+                        </p>
+                        <div class="flex items-center">
+                            <div class="w-14 h-14 bg-agro-green-600 rounded-full flex items-center justify-center text-white font-bold text-xl mr-4">
+                                SM
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900">Sarah Mbeki</h4>
+                                <p class="text-sm text-gray-600">Cooperative Leader</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 3 -->
+                    <div class="bg-white rounded-2xl p-8 shadow-lg card-hover">
+                        <div class="flex text-yellow-400 mb-4">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="text-gray-700 mb-6 leading-relaxed italic">
+                            "Excellent geomembrane work. Expert installation and quality materials. Highly recommended!"
+                        </p>
+                        <div class="flex items-center">
+                            <div class="w-14 h-14 bg-agro-green-600 rounded-full flex items-center justify-center text-white font-bold text-xl mr-4">
+                                DK
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900">David Kimani</h4>
+                                <p class="text-sm text-gray-600">Aquaculture Specialist</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-4 section-title">Get In Touch</h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                        Ready to start your agricultural project? Contact us today
+                    </p>
+                </div>
+                
+                <div class="grid lg:grid-cols-2 gap-12">
+                    <!-- Contact Form -->
+                    <div class="bg-gray-50 rounded-2xl p-8 shadow-lg">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-6">Send a Message</h3>
+                        <form id="contactForm" class="space-y-6">
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <div>
+                                    <label for="firstName" class="block text-sm font-medium text-gray-700 mb-2">First Name *</label>
+                                    <input type="text" id="firstName" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-agro-green-500 focus:border-transparent transition-all">
                                 </div>
                                 <div>
-                                    <h4 class="text-lg font-semibold text-gray-900 mb-1">Address</h4>
-                                    <p class="text-gray-600">
-                                        Pro Agro Global Ltd<br>
-                                        P.O. Box 10414 Arusha<br>
-                                        Tanganyika Farmers Association Complex<br>
-                                        West Wing room no 40<br>
-                                        Arusha, Tanzania
-                                    </p>
+                                    <label for="lastName" class="block text-sm font-medium text-gray-700 mb-2">Last Name *</label>
+                                    <input type="text" id="lastName" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-agro-green-500 focus:border-transparent transition-all">
                                 </div>
                             </div>
                             
-                            <div class="flex items-start space-x-4">
-                                <div class="w-12 h-12 gradient-bg rounded-full flex items-center justify-center flex-shrink-0">
-                                    <i class="fas fa-phone text-white"></i>
-                                </div>
-                                <div>
-                                    <h4 class="text-lg font-semibold text-gray-900 mb-1">Phone</h4>
-                                    <p class="text-gray-600">
-                                        <a href="tel:+255782906985" class="hover:text-agro-green-600 transition-colors">+255 782 906 985</a>
-                                    </p>
-                                </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email *</label>
+                                <input type="email" id="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-agro-green-500 focus:border-transparent transition-all">
                             </div>
                             
-                            <div class="flex items-start space-x-4">
-                                <div class="w-12 h-12 gradient-bg rounded-full flex items-center justify-center flex-shrink-0">
-                                    <i class="fas fa-envelope text-white"></i>
-                                </div>
-                                <div>
-                                    <h4 class="text-lg font-semibold text-gray-900 mb-1">Email</h4>
-                                    <p class="text-gray-600">
-                                        <a href="mailto:info@proagroglobal.co.tz" class="hover:text-agro-green-600 transition-colors">info@proagroglobal.co.tz</a>
-                                    </p>
-                                </div>
+                            <div>
+                                <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">Phone</label>
+                                <input type="tel" id="phone" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-agro-green-500 focus:border-transparent transition-all">
                             </div>
-                        </div>
+                            
+                            <div>
+                                <label for="service" class="block text-sm font-medium text-gray-700 mb-2">Service Interest</label>
+                                <select id="service" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-agro-green-500 focus:border-transparent transition-all">
+                                    <option>Select a service</option>
+                                    <option>Irrigation Systems</option>
+                                    <option>Greenhouses</option>
+                                    <option>Geomembranes</option>
+                                    <option>Civil Engineering</option>
+                                    <option>General Inquiry</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Message *</label>
+                                <textarea id="message" rows="4" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-agro-green-500 focus:border-transparent transition-all resize-none"></textarea>
+                            </div>
+                            
+                            <button type="submit" class="w-full btn-primary text-white py-4 rounded-lg font-semibold text-lg">
+                                <i class="fas fa-paper-plane mr-2"></i>
+                                Send Message
+                            </button>
+                        </form>
                     </div>
                     
-                    <!-- Google Maps -->
-                    <div class="rounded-xl overflow-hidden shadow-lg">
-                        <iframe 
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961.6234567890123!2d36.68234567890123!3d-3.36789012345678!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x37a8f1234567890a%3A0x1234567890abcdef!2sTanganyika%20Farmers%20Association%2C%20Arusha%2C%20Tanzania!5e0!3m2!1sen!2s!4v1234567890123!5m2!1sen!2s"
-                            width="100%" 
-                            height="256" 
-                            style="border:0;" 
-                            allowfullscreen="" 
-                            loading="lazy" 
-                            referrerpolicy="no-referrer-when-downgrade"
-                            title="Pro Agro Global Office Location - Tanganyika Farmers Association Complex, Arusha">
-                        </iframe>
-                    </div>
-                    <div class="mt-4 text-center">
-                        <a href="https://maps.google.com/maps?q=Tanganyika+Farmers+Association+Complex,+Arusha,+Tanzania&hl=en" 
-                           target="_blank" 
-                           class="inline-flex items-center text-agro-green-600 hover:text-agro-green-700 font-medium bg-agro-green-50 hover:bg-agro-green-100 px-4 py-2 rounded-lg transition-colors text-sm">
-                            <i class="fas fa-external-link-alt mr-2"></i>
-                            View in Google Maps
-                        </a>
-                    </div>
-                    
-                    <!-- Business Hours -->
-                    <div class="bg-white rounded-xl p-6 shadow-lg">
-                        <h4 class="text-lg font-semibold text-gray-900 mb-4">Business Hours</h4>
-                        <div class="space-y-3">
-                            <div class="flex justify-between items-center py-2 border-b border-gray-100">
-                                <span class="text-gray-700 font-medium">Monday - Friday:</span>
-                                <span class="text-gray-600">8:00 AM - 5:00 PM</span>
-                            </div>
-                            <div class="flex justify-between items-center py-2 border-b border-gray-100">
-                                <span class="text-gray-700 font-medium">Saturday:</span>
-                                <span class="text-gray-600">8:00 AM - 1:00 PM</span>
-                            </div>
-                            <div class="flex justify-between items-center py-2">
-                                <span class="text-gray-700 font-medium">Sunday:</span>
-                                <span class="text-red-600 font-medium">Closed</span>
+                    <!-- Contact Information -->
+                    <div class="space-y-8">
+                        <div>
+                            <h3 class="text-2xl font-bold text-gray-900 mb-6">Contact Information</h3>
+                            
+                            <div class="space-y-6">
+                                <div class="flex items-start">
+                                    <div class="w-14 h-14 bg-agro-green-100 rounded-full flex items-center justify-center flex-shrink-0 mr-4">
+                                        <i class="fas fa-map-marker-alt text-agro-green-600 text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-gray-900 mb-1 text-lg">Office Address</h4>
+                                        <p class="text-gray-600">Tanganyika Farmers Association Complex<br>West Wing, Room 40<br>Arusha, Tanzania 10414</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <div class="w-14 h-14 bg-agro-green-100 rounded-full flex items-center justify-center flex-shrink-0 mr-4">
+                                        <i class="fas fa-phone text-agro-green-600 text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-gray-900 mb-1 text-lg">Phone</h4>
+                                        <p class="text-gray-600">+255 782 906 985<br>+255 754 300 989</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <div class="w-14 h-14 bg-agro-green-100 rounded-full flex items-center justify-center flex-shrink-0 mr-4">
+                                        <i class="fas fa-envelope text-agro-green-600 text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-gray-900 mb-1 text-lg">Email</h4>
+                                        <p class="text-gray-600">info@proagroglobal.co.tz<br>sales@proagroglobal.co.tz</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <div class="w-14 h-14 bg-agro-green-100 rounded-full flex items-center justify-center flex-shrink-0 mr-4">
+                                        <i class="fas fa-clock text-agro-green-600 text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-gray-900 mb-1 text-lg">Business Hours</h4>
+                                        <p class="text-gray-600">Monday - Friday: 8:00 AM - 5:00 PM<br>Saturday: 9:00 AM - 1:00 PM<br>Sunday: Closed</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         
-                        <div class="mt-6 p-4 bg-agro-green-50 rounded-lg">
-                            <div class="flex items-start space-x-3">
-                                <i class="fas fa-info-circle text-agro-green-600 mt-0.5"></i>
-                                <div>
-                                    <h4 class="text-sm font-semibold text-agro-green-800">Emergency Service</h4>
-                                    <p class="text-xs text-agro-green-700">For urgent agricultural emergencies, call us anytime. We provide 24/7 support for critical situations.</p>
-                                </div>
-                            </div>
+                        <!-- Map -->
+                        <div class="rounded-2xl overflow-hidden shadow-lg">
+                            <iframe 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3968.5874746956645!2d36.68295631428736!3d-3.3670394975409443!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zM8KwMjInMDEuMyJTIDM2wrA0MSczMS40IkU!5e0!3m2!1sen!2stz!4v1234567890123!5m2!1sen!2stz" 
+                                width="100%" 
+                                height="300" 
+                                style="border:0;" 
+                                allowfullscreen="" 
+                                loading="lazy" 
+                                referrerpolicy="no-referrer-when-downgrade"
+                                title="Pro Agro Global Office Location">
+                            </iframe>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
     </main>
-    <!-- End Main Content -->
 
     <!-- Footer -->
     <footer class="bg-gray-900 text-white py-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
                 <!-- Company Info -->
                 <div class="lg:col-span-2">
                     <div class="flex items-center space-x-3 mb-6">
                         <img src="assets/images/logo.png" alt="Pro Agro Global Logo" class="h-12 w-auto">
                         <div>
-                            <h3 class="text-xl font-bold font-display">Pro Agro Global Ltd</h3>
-                            <p class="text-agro-green-400 text-sm font-medium">Together We Can Grow</p>
+                            <h3 class="text-xl font-bold">Pro Agro Global Ltd</h3>
+                            <p class="text-sm text-gray-400">Together We Can Grow</p>
                         </div>
                     </div>
-                    <p class="text-gray-300 mb-6 max-w-md">
-                        A dynamic and leading company in the distribution of modern agriculture products, facilities and technologies to facilitate modern farming practices across East Africa.
+                    <p class="text-gray-400 mb-6 leading-relaxed">
+                        Leading provider of modern agriculture products, facilities and technologies 
+                        across East Africa. Specializing in irrigation systems, greenhouses, 
+                        geomembranes, and civil engineering services.
                     </p>
                     <div class="flex space-x-4">
-                        <a href="#" class="w-10 h-10 bg-agro-green-600 rounded-full flex items-center justify-center hover:bg-agro-green-700 transition-colors">
+                        <a href="#" class="w-10 h-10 bg-gray-800 hover:bg-agro-green-600 rounded-full flex items-center justify-center transition-colors" aria-label="Facebook">
                             <i class="fab fa-facebook-f"></i>
                         </a>
-                        <a href="#" class="w-10 h-10 bg-agro-green-600 rounded-full flex items-center justify-center hover:bg-agro-green-700 transition-colors">
+                        <a href="#" class="w-10 h-10 bg-gray-800 hover:bg-agro-green-600 rounded-full flex items-center justify-center transition-colors" aria-label="Instagram">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="#" class="w-10 h-10 bg-agro-green-600 rounded-full flex items-center justify-center hover:bg-agro-green-700 transition-colors">
+                        <a href="#" class="w-10 h-10 bg-gray-800 hover:bg-agro-green-600 rounded-full flex items-center justify-center transition-colors" aria-label="LinkedIn">
                             <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 hover:bg-agro-green-600 rounded-full flex items-center justify-center transition-colors" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
                         </a>
                     </div>
                 </div>
                 
                 <!-- Quick Links -->
                 <div>
-                    <h4 class="text-lg font-semibold mb-6 font-display">Quick Links</h4>
+                    <h4 class="text-lg font-bold mb-6">Quick Links</h4>
                     <ul class="space-y-3">
-                        <li><a href="#home" class="text-gray-300 hover:text-agro-green-400 transition-colors">Home</a></li>
-                        <li><a href="pages/about.html" class="text-gray-300 hover:text-agro-green-400 transition-colors">About Us</a></li>
-                        <li><a href="pages/services.html" class="text-gray-300 hover:text-agro-green-400 transition-colors">Services</a></li>
-                        <li><a href="#gallery" class="text-gray-300 hover:text-agro-green-400 transition-colors">Gallery</a></li>
-                        <li><a href="pages/contact.html" class="text-gray-300 hover:text-agro-green-400 transition-colors">Contact</a></li>
+                        <li><a href="#home" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white transition-colors">Services</a></li>
+                        <li><a href="#projects" class="text-gray-400 hover:text-white transition-colors">Projects</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
                     </ul>
                 </div>
                 
                 <!-- Services -->
                 <div>
-                    <h4 class="text-lg font-semibold mb-6 font-display">Our Services</h4>
+                    <h4 class="text-lg font-bold mb-6">Our Services</h4>
                     <ul class="space-y-3">
-                        <li><a href="pages/services.html" class="text-gray-300 hover:text-agro-green-400 transition-colors">Irrigation Systems</a></li>
-                        <li><a href="pages/services.html" class="text-gray-300 hover:text-agro-green-400 transition-colors">Greenhouses</a></li>
-                        <li><a href="pages/services.html" class="text-gray-300 hover:text-agro-green-400 transition-colors">Geomembranes/Liners</a></li>
-                        <li><a href="pages/services.html" class="text-gray-300 hover:text-agro-green-400 transition-colors">Civil Engineering</a></li>
-                        <li><a href="pages/contact.html" class="text-gray-300 hover:text-agro-green-400 transition-colors">Water Drilling</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white transition-colors">Irrigation Systems</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white transition-colors">Greenhouses</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white transition-colors">Geomembranes</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white transition-colors">Civil Engineering</a></li>
                     </ul>
                 </div>
             </div>
@@ -1225,13 +938,9 @@
                     <p class="text-gray-400 text-sm mb-4 md:mb-0">
                         © 2025 Pro Agro Global Ltd. All rights reserved.
                     </p>
-                    <div class="flex items-center space-x-6 text-sm text-gray-400">
-                        <a href="#" class="hover:text-agro-green-400 transition-colors">Privacy Policy</a>
-                        <a href="#" class="hover:text-agro-green-400 transition-colors">Terms of Service</a>
-                        <a href="assets/documents/companyprofile.pdf" target="_blank" class="hover:text-agro-green-400 transition-colors">
-                            <i class="fas fa-file-pdf mr-1"></i>
-                            Company Profile
-                        </a>
+                    <div class="flex space-x-6 text-sm">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">Terms of Service</a>
                     </div>
                 </div>
             </div>
@@ -1240,9 +949,9 @@
 
     <!-- Back to Top Button -->
     <button id="backToTop" 
-            class="fixed bottom-8 right-8 w-12 h-12 bg-agro-green-600 text-white rounded-full shadow-lg hover:bg-agro-green-700 transition-all transform translate-y-12 opacity-0 z-[60]"
+            class="fixed bottom-8 right-8 w-14 h-14 bg-agro-green-600 text-white rounded-full shadow-2xl hover:bg-agro-green-700 transition-all transform translate-y-20 opacity-0 z-50"
             aria-label="Back to top">
-        <i class="fas fa-chevron-up" aria-hidden="true"></i>
+        <i class="fas fa-chevron-up text-xl" aria-hidden="true"></i>
     </button>
 
     <!-- JavaScript -->
@@ -1257,262 +966,91 @@
             mobileMenu.classList.toggle('hidden');
         });
 
-        // Navbar scroll effect
-        window.addEventListener('scroll', () => {
-            const navbar = document.getElementById('navbar');
-            const backToTopButton = document.getElementById('backToTop');
-            
-            if (window.scrollY > 100) {
-                navbar.classList.add('bg-white/95', 'backdrop-blur-sm');
-                backToTopButton.classList.remove('translate-y-12', 'opacity-0');
-            } else {
-                navbar.classList.remove('bg-white/95', 'backdrop-blur-sm');
-                backToTopButton.classList.add('translate-y-12', 'opacity-0');
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!mobileMenuButton.contains(e.target) && !mobileMenu.contains(e.target)) {
+                mobileMenu.classList.add('hidden');
+                mobileMenuButton.setAttribute('aria-expanded', 'false');
             }
         });
 
-        // Back to top functionality
-        document.getElementById('backToTop').addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('navbar-scrolled');
+            } else {
+                navbar.classList.remove('navbar-scrolled');
+            }
         });
 
-        // Contact form handling
-        document.getElementById('contactForm').addEventListener('submit', (e) => {
+        // Back to top button
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTop.classList.remove('translate-y-20', 'opacity-0');
+                backToTop.classList.add('translate-y-0', 'opacity-100');
+            } else {
+                backToTop.classList.add('translate-y-20', 'opacity-0');
+                backToTop.classList.remove('translate-y-0', 'opacity-100');
+            }
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Get form data
-            const formData = new FormData(e.target);
-            const data = Object.fromEntries(formData.entries());
-            
-            // Remove any existing error messages
-            const existingError = document.querySelector('[role="alert"]');
-            if (existingError) existingError.remove();
-            
-            // Simple form validation
-            if (!data.firstName || !data.lastName || !data.email || !data.message) {
-                showFormError('Please fill in all required fields.', e.target);
-                return;
-            }
-            
-            // Email validation
-            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailPattern.test(data.email)) {
-                showFormError('Please enter a valid email address.', e.target);
-                return;
-            }
-            
             // Show success message
-            showFormSuccess('Thank you for your message! We will get back to you within 24 hours.', e.target);
-            e.target.reset();
-        });
-        
-        // Function to show accessible error messages
-        function showFormError(message, form) {
-            const errorDiv = document.createElement('div');
-            errorDiv.setAttribute('role', 'alert');
-            errorDiv.setAttribute('aria-live', 'polite');
-            errorDiv.className = 'bg-red-50 border-l-4 border-red-500 text-red-700 p-4 mb-4 rounded';
-            errorDiv.innerHTML = `<div class="flex"><i class="fas fa-exclamation-circle mr-2 mt-1"></i><p>${message}</p></div>`;
-            form.insertBefore(errorDiv, form.firstChild);
-            errorDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        }
-        
-        // Function to show accessible success messages
-        function showFormSuccess(message, form) {
+            const form = e.target;
             const successDiv = document.createElement('div');
             successDiv.setAttribute('role', 'alert');
             successDiv.setAttribute('aria-live', 'polite');
             successDiv.className = 'bg-green-50 border-l-4 border-green-500 text-green-700 p-4 mb-4 rounded';
-            successDiv.innerHTML = `<div class="flex"><i class="fas fa-check-circle mr-2 mt-1"></i><p>${message}</p></div>`;
+            successDiv.innerHTML = `
+                <div class="flex">
+                    <i class="fas fa-check-circle mr-2 text-xl"></i>
+                    <div>
+                        <p class="font-semibold">Message sent successfully!</p>
+                        <p class="text-sm">We'll get back to you soon.</p>
+                    </div>
+                </div>
+            `;
+            
             form.insertBefore(successDiv, form.firstChild);
+            form.reset();
+            
+            // Remove success message after 5 seconds
+            setTimeout(() => {
+                successDiv.remove();
+            }, 5000);
+            
+            // Scroll to success message
             successDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-            setTimeout(() => successDiv.remove(), 5000);
-        }
+        });
 
-        // Smooth scrolling for navigation links
+        // Smooth scroll for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                const targetId = this.getAttribute('href').substring(1);
-                const targetElement = document.getElementById(targetId);
-                
-                if (targetElement) {
-                    const offsetTop = targetElement.offsetTop - 80; // Account for fixed navbar
-                    window.scrollTo({
-                        top: offsetTop,
-                        behavior: 'smooth'
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
                     });
-                    
                     // Close mobile menu if open
                     mobileMenu.classList.add('hidden');
+                    mobileMenuButton.setAttribute('aria-expanded', 'false');
                 }
             });
         });
-
-        // Loading Screen Functionality
-        const loadingScreen = document.getElementById('loadingScreen');
-        const loadingText = document.getElementById('loadingText');
-        const skipButton = document.getElementById('skipButton');
-        const progressFill = document.getElementById('progressFill');
-        const mainContent = document.getElementById('mainContent');
-        
-        // Loading messages array
-        const loadingMessages = [
-            "Preparing your agricultural solutions...",
-            "Loading modern farming technology...",
-            "Initializing irrigation systems...",
-            "Setting up greenhouse facilities...",
-            "Connecting to agricultural network...",
-            "Finalizing your experience..."
-        ];
-        
-        let currentMessageIndex = 0;
-        let loadingProgress = 0;
-        
-        // Function to update loading text
-        function updateLoadingText() {
-            if (currentMessageIndex < loadingMessages.length) {
-                loadingText.textContent = loadingMessages[currentMessageIndex];
-                currentMessageIndex++;
-            }
-        }
-        
-        // Function to simulate loading progress
-        function updateProgress() {
-            loadingProgress += Math.random() * 15 + 5; // Random increment between 5-20
-            if (loadingProgress > 100) loadingProgress = 100;
-            
-            progressFill.style.width = loadingProgress + '%';
-            
-            if (loadingProgress >= 100) {
-                setTimeout(showMainContent, 500); // Wait a bit then show main content
-            }
-        }
-        
-        // Function to show main content
-        function showMainContent() {
-            // Prevent multiple calls
-            if (loadingScreen.classList.contains('fade-out')) return;
-            
-            loadingScreen.classList.add('fade-out');
-            setTimeout(() => {
-                loadingScreen.style.display = 'none';
-                mainContent.classList.add('show');
-                document.body.style.overflow = 'auto'; // Re-enable scrolling
-            }, 1000);
-        }
-        
-        // Initialize loading sequence
-        function startLoading() {
-            // Prevent scrolling during loading
-            document.body.style.overflow = 'hidden';
-            
-            // Update loading text every 800ms
-            const textInterval = setInterval(() => {
-                updateLoadingText();
-                if (currentMessageIndex >= loadingMessages.length) {
-                    clearInterval(textInterval);
-                }
-            }, 800);
-            
-            // Update progress every 600ms
-            const progressInterval = setInterval(() => {
-                updateProgress();
-                if (loadingProgress >= 100) {
-                    clearInterval(progressInterval);
-                }
-            }, 600);
-        }
-        
-        // Skip button functionality
-        skipButton.addEventListener('click', showMainContent);
-        
-        // Keyboard shortcut to skip (Space or Enter) - only when loading screen is visible
-        document.addEventListener('keydown', (e) => {
-            if ((e.code === 'Space' || e.code === 'Enter') && loadingScreen.style.display !== 'none') {
-                e.preventDefault();
-                showMainContent();
-            }
-        });
-        
-        // Check if user has visited before
-        if (sessionStorage.getItem('visitedBefore')) {
-            // Skip loading screen for return visitors
-            showMainContent();
-        } else {
-            // Show loading screen for first-time visitors
-            sessionStorage.setItem('visitedBefore', 'true');
-            // Auto show main content after 5 seconds
-            setTimeout(showMainContent, 5000);
-        }
-        
-        // Start loading animation when page loads
-        window.addEventListener('load', startLoading);
-        
-        // Fallback: start loading immediately if load event already fired
-        if (document.readyState === 'complete') {
-            startLoading();
-        }
-        
-        // Add some random particle effects
-        function createFloatingParticle() {
-            const particle = document.createElement('div');
-            particle.className = 'particle';
-            particle.style.left = Math.random() * 100 + '%';
-            particle.style.width = Math.random() * 4 + 2 + 'px';
-            particle.style.height = particle.style.width;
-            particle.style.animationDelay = Math.random() * 3 + 's';
-            
-            const floatingParticles = document.querySelector('.floating-particles');
-            if (floatingParticles) {
-                floatingParticles.appendChild(particle);
-                
-                // Remove particle after animation
-                setTimeout(() => {
-                    if (particle.parentNode) {
-                        particle.remove();
-                    }
-                }, 3000);
-            }
-        }
-        
-        // Create particles periodically
-        const particleInterval = setInterval(createFloatingParticle, 300);
-        
-        // Clean up particles when loading completes
-        setTimeout(() => {
-            clearInterval(particleInterval);
-        }, 4000);
-
-        // Intersection Observer for animations (after loading)
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in-up');
-                }
-            });
-        }, observerOptions);
-
-        // Observe elements for animation (after main content is shown)
-        setTimeout(() => {
-            document.querySelectorAll('.card-hover, .gradient-bg').forEach(el => {
-                observer.observe(el);
-            });
-
-            // Add loading animation for images
-            document.querySelectorAll('img').forEach(img => {
-                img.addEventListener('load', () => {
-                    img.classList.add('fade-in-up');
-                });
-            });
-        }, 4500);
     </script>
-    </div> 
-    <!-- End Main Content Container -->
 </body>
 </html>
