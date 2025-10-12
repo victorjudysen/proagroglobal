@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="About Pro Agro Global Ltd - 9 years of experience in modern agriculture products, facilities and technologies across East Africa. Learn about our story, mission and achievements.">
+    <meta name="keywords" content="about pro agro global, agriculture company tanzania, farming solutions, arusha agriculture">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.proagroglobal.co.tz/pages/about.html">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="About Us - Pro Agro Global Ltd">
+    <meta property="og:description" content="9 years of excellence in modern agriculture solutions across East Africa. Learn about our story, mission, and achievements.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.proagroglobal.co.tz/pages/about.html">
+    <meta property="og:image" content="https://www.proagroglobal.co.tz/assets/images/logo.png">
+    
+    <title>About Us - Pro Agro Global Ltd</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../assets/images/logo.png">
+    
+    <!-- TailwindCSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom TailwindCSS Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'agro-green': {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            200: '#bbf7d0',
+                            300: '#86efac',
+                            400: '#4ade80',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            800: '#166534',
+                            900: '#14532d',
+                        }
+                    },
+                    fontFamily: {
+                        'sans': ['Lexend', 'system-ui', 'sans-serif'],
+                        'display': ['Lexend', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        html { scroll-behavior: smooth; }
+        .gradient-bg { background: linear-gradient(135deg, #15803d 0%, #22c55e 50%, #16a34a 100%); }
+        .card-hover { transition: all 0.3s ease; }
+        .card-hover:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1); }
+        .btn-primary { background: linear-gradient(135deg, #16a34a, #22c55e); transition: all 0.3s ease; }
+        .btn-primary:hover { background: linear-gradient(135deg, #15803d, #16a34a); transform: translateY(-2px); }
+        .skip-link { position: absolute; top: -40px; left: 0; background: #16a34a; color: white; padding: 8px 16px; z-index: 1000; text-decoration: none; border-radius: 0 0 4px 0; }
+        .skip-link:focus { top: 0; }
+    </style>
+</head>
+<body class="font-sans">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-50 bg-white shadow-lg" aria-label="Main navigation">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0">
+                    <a href="../index.html" class="flex items-center space-x-3">
+                        <img src="../assets/images/logo.png" alt="Pro Agro Global Logo" class="h-12 w-auto">
+                        <div>
+                            <h1 class="text-xl font-bold text-gray-900 font-display">Pro Agro Global</h1>
+                            <p class="text-xs text-agro-green-600 font-medium">Together We Can Grow</p>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="../index.html" class="text-gray-700 hover:text-agro-green-600 font-medium">Home</a>
+                    <a href="about.html" class="text-agro-green-600 font-semibold">About Us</a>
+                    <a href="services.html" class="text-gray-700 hover:text-agro-green-600 font-medium">Services</a>
+                    <a href="gallery.html" class="text-gray-700 hover:text-agro-green-600 font-medium">Gallery</a>
+                    <a href="contact.html" class="text-gray-700 hover:text-agro-green-600 font-medium">Contact</a>
+                    <a href="gallery.html" class="btn-primary text-white px-6 py-2 rounded-full font-semibold">View our projects</a>
+                </div>
+                
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" 
+                            class="text-gray-600 hover:text-gray-900"
+                            aria-label="Toggle mobile menu"
+                            aria-expanded="false"
+                            aria-controls="mobile-menu">
+                        <i class="fas fa-bars text-xl" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div id="mobile-menu" class="md:hidden bg-white border-t border-gray-200 hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="../index.html" class="block px-3 py-2 text-gray-700 hover:text-agro-green-600 font-medium">Home</a>
+                <a href="about.html" class="block px-3 py-2 text-agro-green-600 font-semibold">About Us</a>
+                <a href="services.html" class="block px-3 py-2 text-gray-700 hover:text-agro-green-600 font-medium">Services</a>
+                <a href="gallery.html" class="block px-3 py-2 text-gray-700 hover:text-agro-green-600 font-medium">Gallery</a>
+                <a href="contact.html" class="block px-3 py-2 text-gray-700 hover:text-agro-green-600 font-medium">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content">
+    <!-- Hero Section -->
+    <section class="pt-32 pb-16 bg-gradient-to-br from-agro-green-50 to-green-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 font-display mb-6">About Pro Agro Global</h1>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">9 years of excellence in modern agriculture solutions across East Africa</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Company Story -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 mb-16">
+                <div>
+                    <h2 class="text-3xl font-bold text-gray-900 font-display mb-6">Our Story</h2>
+                    <div class="space-y-6 text-gray-600">
+                        <p class="leading-relaxed">
+                            Pro Agro Global Ltd was established with a clear purpose: to supply general purpose products and materials to major companies, SMEs, and organizations while specializing in the supply and installation of modern agriculture products and facilities.
+                        </p>
+                        <p class="leading-relaxed">
+                            Over the course of 9 years, our company has gathered vast experience and maintained our competitive edge to ensure customer satisfaction at the utmost level. We have built a reputation as a dynamic and leading company in the distribution of modern agriculture products, facilities, and technologies.
+                        </p>
+                        <p class="leading-relaxed">
+                            Our team of highly trained professionals possesses vast experience that goes beyond the sale to ensure that our clients are completely satisfied with our products and services. We believe in building lasting relationships with our clients through quality service and innovative solutions.
+                        </p>
+                    </div>
+                </div>
+                <div class="flex items-center justify-center">
+                    <img src="../assets/images/greenhouses.jpg" alt="Pro Agro Global Facilities" class="rounded-xl shadow-lg w-full h-96 object-cover" width="800" height="600" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission & Vision -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="bg-white p-8 rounded-xl shadow-lg">
+                    <div class="w-16 h-16 gradient-bg rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-bullseye text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 font-display mb-4">Our Mission</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        To become the world-class supplier of products, facilities as well as technical solutions provider in East Africa, facilitating growth of modern agriculture through innovative solutions and exceptional service delivery.
+                    </p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-xl shadow-lg">
+                    <div class="w-16 h-16 gradient-bg rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-eye text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 font-display mb-4">Our Vision</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        To be recognized as the leading provider of modern agricultural solutions in East Africa, empowering farmers and organizations with cutting-edge technology and sustainable practices that drive agricultural transformation.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 font-display mb-4">Our Achievements</h2>
+                <p class="text-lg text-gray-600">Numbers that speak for our excellence</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center p-6 bg-gradient-to-br from-agro-green-50 to-green-100 rounded-xl">
+                    <div class="w-16 h-16 gradient-bg rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-project-diagram text-white text-2xl"></i>
+                    </div>
+                    <h4 class="text-4xl font-bold text-gray-900 mb-2">120+</h4>
+                    <p class="text-gray-600 font-medium">Projects Completed</p>
+                    <p class="text-sm text-gray-500 mt-2">Successful installations across East Africa</p>
+                </div>
+                
+                <div class="text-center p-6 bg-gradient-to-br from-agro-green-50 to-green-100 rounded-xl">
+                    <div class="w-16 h-16 gradient-bg rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-users text-white text-2xl"></i>
+                    </div>
+                    <h4 class="text-4xl font-bold text-gray-900 mb-2">247</h4>
+                    <p class="text-gray-600 font-medium">Happy Clients</p>
+                    <p class="text-sm text-gray-500 mt-2">From SMEs to large corporations</p>
+                </div>
+                
+                <div class="text-center p-6 bg-gradient-to-br from-agro-green-50 to-green-100 rounded-xl">
+                    <div class="w-16 h-16 gradient-bg rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-box text-white text-2xl"></i>
+                    </div>
+                    <h4 class="text-4xl font-bold text-gray-900 mb-2">6,500+</h4>
+                    <p class="text-gray-600 font-medium">Products Supplied</p>
+                    <p class="text-sm text-gray-500 mt-2">High-quality agriculture products</p>
+                </div>
+                
+                <div class="text-center p-6 bg-gradient-to-br from-agro-green-50 to-green-100 rounded-xl">
+                    <div class="w-16 h-16 gradient-bg rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-trophy text-white text-2xl"></i>
+                    </div>
+                    <h4 class="text-4xl font-bold text-gray-900 mb-2">5</h4>
+                    <p class="text-gray-600 font-medium">Awards Earned</p>
+                    <p class="text-sm text-gray-500 mt-2">Recognition for excellence</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Values -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 font-display mb-4">Our Core Values</h2>
+                <p class="text-lg text-gray-600">The principles that guide our operations</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-white p-8 rounded-xl shadow-lg text-center card-hover">
+                    <div class="w-16 h-16 gradient-bg rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-check-circle text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Compliance</h3>
+                    <p class="text-gray-600">We ensure compliance in everything we do to secure our professionalism and maintain the highest standards in all our operations.</p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-xl shadow-lg text-center card-hover">
+                    <div class="w-16 h-16 gradient-bg rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-chart-line text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Productivity</h3>
+                    <p class="text-gray-600">We ensure productivity for our clients' investment, maximizing returns through efficient and effective solutions.</p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-xl shadow-lg text-center card-hover">
+                    <div class="w-16 h-16 gradient-bg rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-shield-alt text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Safety</h3>
+                    <p class="text-gray-600">We prioritize safety in all our installations and operations, ensuring secure business environments for our clients.</p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-xl shadow-lg text-center card-hover">
+                    <div class="w-16 h-16 gradient-bg rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-expand-arrows-alt text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Flexibility</h3>
+                    <p class="text-gray-600">We are flexible with our provisions, offering greater degrees of choices to meet diverse client requirements.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 font-display mb-4">Why Choose Pro Agro Global</h2>
+                <p class="text-lg text-gray-600">What sets us apart in the industry</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <div class="w-20 h-20 gradient-bg rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-user-friends text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Customer-Focused</h3>
+                    <p class="text-gray-600">We have an intimate understanding of our clients' needs and are obsessed about the quality of our services, always suiting the needs and demands of our clients.</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-20 h-20 gradient-bg rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-clock text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Timely Delivery</h3>
+                    <p class="text-gray-600">We understand the importance of time in agricultural projects. Our commitment to timely delivery ensures your projects stay on schedule.</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-20 h-20 gradient-bg rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-smile text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Customer Satisfaction</h3>
+                    <p class="text-gray-600">Our 9 years of experience and 247+ satisfied clients are testament to our commitment to exceeding customer expectations in every project.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-20 gradient-bg text-white">
+        <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold mb-6 font-display">Ready to Transform Your Agricultural Operations?</h2>
+            <p class="text-xl mb-8 opacity-90">Let our experienced team help you achieve your agricultural goals with modern solutions and technologies.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="services.html" class="bg-white text-agro-green-700 px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition-colors">
+                    Explore Our Services
+                </a>
+                <a href="contact.html" class="border-2 border-white text-white hover:bg-white hover:text-agro-green-700 px-8 py-4 rounded-full font-semibold transition-colors">
+                    Get in Touch
+                </a>
+            </div>
+        </div>
+    </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+                <!-- Company Info -->
+                <div class="lg:col-span-2">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <img src="../assets/images/logo.png" alt="Pro Agro Global Logo" class="h-12 w-auto">
+                        <div>
+                            <h3 class="text-xl font-bold font-display">Pro Agro Global Ltd</h3>
+                            <p class="text-agro-green-400 text-sm font-medium">Together We Can Grow</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-6 max-w-md">
+                        A dynamic and leading company in the distribution of modern agriculture products, facilities and technologies to facilitate modern farming practices across East Africa.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-agro-green-600 rounded-full flex items-center justify-center hover:bg-agro-green-700 transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-agro-green-600 rounded-full flex items-center justify-center hover:bg-agro-green-700 transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-agro-green-600 rounded-full flex items-center justify-center hover:bg-agro-green-700 transition-colors">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-6 font-display">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="../index.html" class="text-gray-300 hover:text-agro-green-400 transition-colors">Home</a></li>
+                        <li><a href="about.html" class="text-gray-300 hover:text-agro-green-400 transition-colors">About Us</a></li>
+                        <li><a href="services.html" class="text-gray-300 hover:text-agro-green-400 transition-colors">Services</a></li>
+                        <li><a href="gallery.html" class="text-gray-300 hover:text-agro-green-400 transition-colors">Gallery</a></li>
+                        <li><a href="contact.html" class="text-gray-300 hover:text-agro-green-400 transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Services -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-6 font-display">Our Services</h4>
+                    <ul class="space-y-3">
+                        <li><a href="services.html" class="text-gray-300 hover:text-agro-green-400 transition-colors">Irrigation Systems</a></li>
+                        <li><a href="services.html" class="text-gray-300 hover:text-agro-green-400 transition-colors">Greenhouses</a></li>
+                        <li><a href="services.html" class="text-gray-300 hover:text-agro-green-400 transition-colors">Geomembranes/Liners</a></li>
+                        <li><a href="services.html" class="text-gray-300 hover:text-agro-green-400 transition-colors">Civil Engineering</a></li>
+                        <li><a href="contact.html" class="text-gray-300 hover:text-agro-green-400 transition-colors">Water Drilling</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Bottom Bar -->
+            <div class="border-t border-gray-800 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-400 text-sm mb-4 md:mb-0">
+                        © 2025 Pro Agro Global Ltd. All rights reserved.
+                    </p>
+                    <div class="flex items-center space-x-6 text-sm text-gray-400">
+                        <a href="#" class="hover:text-agro-green-400 transition-colors">Privacy Policy</a>
+                        <a href="#" class="hover:text-agro-green-400 transition-colors">Terms of Service</a>
+                        <a href="../assets/documents/companyprofile.pdf" target="_blank" class="hover:text-agro-green-400 transition-colors">
+                            <i class="fas fa-file-pdf mr-1"></i>
+                            Company Profile
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" 
+            class="fixed bottom-8 right-8 w-12 h-12 bg-agro-green-600 text-white rounded-full shadow-lg hover:bg-agro-green-700 transition-all transform translate-y-12 opacity-0 z-[60]"
+            aria-label="Back to top">
+        <i class="fas fa-chevron-up" aria-hidden="true"></i>
+    </button>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
+            mobileMenuButton.setAttribute('aria-expanded', !isExpanded);
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Back to top functionality
+        document.getElementById('backToTop').addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            const backToTopButton = document.getElementById('backToTop');
+            
+            if (window.scrollY > 100) {
+                navbar.classList.add('bg-white/95', 'backdrop-blur-sm');
+                backToTopButton.classList.remove('translate-y-12', 'opacity-0');
+            } else {
+                navbar.classList.remove('bg-white/95', 'backdrop-blur-sm');
+                backToTopButton.classList.add('translate-y-12', 'opacity-0');
+            }
+        });
+    </script>
+</body>
+</html>
