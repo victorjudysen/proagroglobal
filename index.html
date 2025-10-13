@@ -300,22 +300,32 @@
             top: 0;
         }
         
-        /* Custom scrollbar */
+        /* Creative Custom Scrollbar */
         ::-webkit-scrollbar {
-            width: 10px;
+            width: 14px;
         }
         
         ::-webkit-scrollbar-track {
-            background: #f1f1f1;
+            background: linear-gradient(180deg, #f0fdf4 0%, #dcfce7 50%, #f0fdf4 100%);
+            border-radius: 10px;
+            margin: 5px;
         }
         
         ::-webkit-scrollbar-thumb {
-            background: #16a34a;
-            border-radius: 5px;
+            background: linear-gradient(180deg, #22c55e 0%, #16a34a 50%, #15803d 100%);
+            border-radius: 10px;
+            border: 2px solid #f0fdf4;
+            box-shadow: 0 2px 6px rgba(22, 163, 74, 0.3);
         }
         
         ::-webkit-scrollbar-thumb:hover {
-            background: #15803d;
+            background: linear-gradient(180deg, #16a34a 0%, #15803d 50%, #14532d 100%);
+            box-shadow: 0 4px 10px rgba(22, 163, 74, 0.5);
+            border-color: #dcfce7;
+        }
+        
+        ::-webkit-scrollbar-thumb:active {
+            background: linear-gradient(180deg, #15803d 0%, #14532d 100%);
         }
         
         /* Client Logo Scrolling Animation */
@@ -407,8 +417,8 @@
                     </a>
                 </div>
                 
-                <!-- Desktop Navigation -->
-                <div class="hidden md:flex items-center space-x-8">
+                <!-- Desktop Navigation - Centered -->
+                <div class="hidden md:flex items-center space-x-8 absolute left-1/2 transform -translate-x-1/2">
                     <a href="index.html" class="text-white font-semibold border-b-2 border-white">Home</a>
                     <a href="pages/about.html" class="text-white hover:text-gray-200 font-medium transition-colors duration-200">About</a>
                     <a href="pages/services.html" class="text-white hover:text-gray-200 font-medium transition-colors duration-200">Services</a>
@@ -477,15 +487,6 @@
                 <button class="slideshow-next absolute right-4 top-1/2 transform -translate-y-1/2 z-10 bg-white bg-opacity-30 hover:bg-opacity-50 text-white p-3 rounded-full transition-all">
                     <i class="fas fa-chevron-right text-xl"></i>
                 </button>
-                
-                <!-- Slideshow Dots -->
-                <div class="slideshow-dots absolute bottom-24 left-0 right-0 flex justify-center gap-2 z-10">
-                    <span class="dot active bg-white w-3 h-3 rounded-full cursor-pointer transition-all hover:scale-125" onclick="currentSlide(1)"></span>
-                    <span class="dot bg-white bg-opacity-50 w-3 h-3 rounded-full cursor-pointer transition-all hover:scale-125" onclick="currentSlide(2)"></span>
-                    <span class="dot bg-white bg-opacity-50 w-3 h-3 rounded-full cursor-pointer transition-all hover:scale-125" onclick="currentSlide(3)"></span>
-                    <span class="dot bg-white bg-opacity-50 w-3 h-3 rounded-full cursor-pointer transition-all hover:scale-125" onclick="currentSlide(4)"></span>
-                    <span class="dot bg-white bg-opacity-50 w-3 h-3 rounded-full cursor-pointer transition-all hover:scale-125" onclick="currentSlide(5)"></span>
-                </div>
             </div>
             
             <!-- Hero Content -->

@@ -34,7 +34,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        html{scroll-behavior:smooth}.hero-overlay{background:linear-gradient(135deg,rgba(22,163,74,.92) 0%,rgba(21,128,61,.85) 100%)}.card-hover{transition:all .4s cubic-bezier(.4,0,.2,1)}.card-hover:hover{transform:translateY(-8px);box-shadow:0 20px 50px rgba(0,0,0,.15)}.btn-primary{background:linear-gradient(135deg,#16a34a,#22c55e);transition:all .3s ease}.btn-primary:hover{background:linear-gradient(135deg,#15803d,#16a34a);transform:translateY(-2px);box-shadow:0 10px 25px rgba(22,163,74,.3)}#navbar{background:transparent}#navbar.navbar-scrolled{background:rgba(255,255,255,.98)!important;backdrop-filter:blur(10px);box-shadow:0 2px 20px rgba(0,0,0,.08)}#navbar.navbar-scrolled .text-white{color:#1f2937!important}#navbar.navbar-scrolled h1{color:#1f2937!important}#navbar.navbar-scrolled p{color:#16a34a!important}#navbar.navbar-scrolled a.text-white{color:#1f2937!important}#navbar.navbar-scrolled a[href*="contact.html"]{background:#16a34a!important;color:white!important}.section-title::after{content:'';display:block;width:60px;height:3px;background:linear-gradient(90deg,#16a34a,#22c55e);margin:16px auto 0}@keyframes fadeInUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}.fade-in-up{animation:fadeInUp .8s ease-out}.skip-link{position:absolute;top:-40px;left:0;background:#16a34a;color:white;padding:8px 16px;z-index:1000;text-decoration:none;border-radius:0 0 4px 0}.skip-link:focus{top:0}::-webkit-scrollbar{width:10px}::-webkit-scrollbar-track{background:#f1f1f1}::-webkit-scrollbar-thumb{background:#16a34a;border-radius:5px}::-webkit-scrollbar-thumb:hover{background:#15803d}
+        html{scroll-behavior:smooth}.hero-overlay{background:linear-gradient(135deg,rgba(0,0,0,.35) 0%,rgba(0,0,0,.40) 100%)}.card-hover{transition:all .4s cubic-bezier(.4,0,.2,1)}.card-hover:hover{transform:translateY(-8px);box-shadow:0 20px 50px rgba(0,0,0,.15)}.btn-primary{background:linear-gradient(135deg,#16a34a,#22c55e);transition:all .3s ease}.btn-primary:hover{background:linear-gradient(135deg,#15803d,#16a34a);transform:translateY(-2px);box-shadow:0 10px 25px rgba(22,163,74,.3)}#navbar{background:transparent}#navbar.navbar-scrolled{background:rgba(255,255,255,.98)!important;backdrop-filter:blur(10px);box-shadow:0 2px 20px rgba(0,0,0,.08)}#navbar.navbar-scrolled .text-white{color:#1f2937!important}#navbar.navbar-scrolled h1{color:#1f2937!important}#navbar.navbar-scrolled p{color:#16a34a!important}#navbar.navbar-scrolled a.text-white{color:#1f2937!important}#navbar.navbar-scrolled a[href*="contact.html"]{background:#16a34a!important;color:white!important}.section-title::after{content:'';display:block;width:60px;height:3px;background:linear-gradient(90deg,#16a34a,#22c55e);margin:16px auto 0}@keyframes fadeInUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}.fade-in-up{animation:fadeInUp .8s ease-out}.skip-link{position:absolute;top:-40px;left:0;background:#16a34a;color:white;padding:8px 16px;z-index:1000;text-decoration:none;border-radius:0 0 4px 0}.skip-link:focus{top:0}::-webkit-scrollbar{width:14px}::-webkit-scrollbar-track{background:linear-gradient(180deg,#f0fdf4 0%,#dcfce7 50%,#f0fdf4 100%);border-radius:10px;margin:5px}::-webkit-scrollbar-thumb{background:linear-gradient(180deg,#22c55e 0%,#16a34a 50%,#15803d 100%);border-radius:10px;border:2px solid #f0fdf4;box-shadow:0 2px 6px rgba(22,163,74,.3)}::-webkit-scrollbar-thumb:hover{background:linear-gradient(180deg,#16a34a 0%,#15803d 50%,#14532d 100%);box-shadow:0 4px 10px rgba(22,163,74,.5);border-color:#dcfce7}::-webkit-scrollbar-thumb:active{background:linear-gradient(180deg,#15803d 0%,#14532d 100%)}
     </style>
     <title>About Us - Pro Agro Global Ltd</title>
 </head>
@@ -52,7 +52,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="hidden md:flex items-center space-x-8">
+                <div class="hidden md:flex items-center space-x-8 absolute left-1/2 transform -translate-x-1/2">
                     <a href="../index.html" class="text-white hover:text-gray-200 font-medium transition-colors duration-200">Home</a>
                     <a href="about.html" class="text-white font-semibold border-b-2 border-white">About</a>
                     <a href="services.html" class="text-white hover:text-gray-200 font-medium transition-colors duration-200">Services</a>
@@ -265,41 +265,71 @@
                     <p class="text-xl text-gray-600 max-w-3xl mx-auto">Trusted by leading organizations across East Africa</p>
                 </div>
                 <div class="grid md:grid-cols-3 lg:grid-cols-4 gap-8">
-                    <div class="bg-gray-50 rounded-xl p-6 flex items-center justify-center card-hover">
-                        <h4 class="text-lg font-bold text-gray-800 text-center">WCS</h4>
+                    <div class="bg-gray-50 rounded-xl p-6 card-hover flex flex-col items-center justify-center space-y-3">
+                        <div class="h-16 flex items-center justify-center">
+                            <img src="../assets/images/wcs.jpg" alt="WCS Logo" class="max-h-full max-w-full object-contain filter grayscale hover:grayscale-0 transition-all">
+                        </div>
+                        <h4 class="text-sm font-bold text-gray-800 text-center">WCS</h4>
                     </div>
-                    <div class="bg-gray-50 rounded-xl p-6 flex items-center justify-center card-hover">
-                        <h4 class="text-lg font-bold text-gray-800 text-center">World Vision Tanzania</h4>
+                    <div class="bg-gray-50 rounded-xl p-6 card-hover flex flex-col items-center justify-center space-y-3">
+                        <div class="h-16 flex items-center justify-center">
+                            <img src="../assets/images/world vision.jpg" alt="World Vision Logo" class="max-h-full max-w-full object-contain filter grayscale hover:grayscale-0 transition-all">
+                        </div>
+                        <h4 class="text-sm font-bold text-gray-800 text-center">World Vision Tanzania</h4>
                     </div>
-                    <div class="bg-gray-50 rounded-xl p-6 flex items-center justify-center card-hover">
-                        <h4 class="text-lg font-bold text-gray-800 text-center">Balton Tanzania</h4>
+                    <div class="bg-gray-50 rounded-xl p-6 card-hover flex flex-col items-center justify-center space-y-3">
+                        <div class="h-16 flex items-center justify-center">
+                            <img src="../assets/images/balton.png" alt="Balton Tanzania Logo" class="max-h-full max-w-full object-contain filter grayscale hover:grayscale-0 transition-all">
+                        </div>
+                        <h4 class="text-sm font-bold text-gray-800 text-center">Balton Tanzania</h4>
                     </div>
-                    <div class="bg-gray-50 rounded-xl p-6 flex items-center justify-center card-hover">
-                        <h4 class="text-lg font-bold text-gray-800 text-center">Equity for Tanzania</h4>
+                    <div class="bg-gray-50 rounded-xl p-6 card-hover flex flex-col items-center justify-center space-y-3">
+                        <div class="h-16 flex items-center justify-center">
+                            <img src="../assets/images/equity.png" alt="Equity Bank Logo" class="max-h-full max-w-full object-contain filter grayscale hover:grayscale-0 transition-all">
+                        </div>
+                        <h4 class="text-sm font-bold text-gray-800 text-center">Equity for Tanzania</h4>
                     </div>
-                    <div class="bg-gray-50 rounded-xl p-6 flex items-center justify-center card-hover">
-                        <h4 class="text-lg font-bold text-gray-800 text-center">Kilimanjaro Plantation Ltd</h4>
+                    <div class="bg-gray-50 rounded-xl p-6 card-hover flex flex-col items-center justify-center space-y-3">
+                        <div class="h-16 flex items-center justify-center">
+                            <img src="../assets/images/kilimanjaro plantation.png" alt="Kilimanjaro Plantation Logo" class="max-h-full max-w-full object-contain filter grayscale hover:grayscale-0 transition-all">
+                        </div>
+                        <h4 class="text-sm font-bold text-gray-800 text-center">Kilimanjaro Plantation Ltd</h4>
                     </div>
-                    <div class="bg-gray-50 rounded-xl p-6 flex items-center justify-center card-hover">
-                        <h4 class="text-lg font-bold text-gray-800 text-center">Serengeti Breweries Ltd</h4>
+                    <div class="bg-gray-50 rounded-xl p-6 card-hover flex flex-col items-center justify-center space-y-3">
+                        <div class="h-16 flex items-center justify-center">
+                            <img src="../assets/images/serengeti breweries.jpg" alt="Serengeti Breweries Logo" class="max-h-full max-w-full object-contain filter grayscale hover:grayscale-0 transition-all">
+                        </div>
+                        <h4 class="text-sm font-bold text-gray-800 text-center">Serengeti Breweries Ltd</h4>
                     </div>
-                    <div class="bg-gray-50 rounded-xl p-6 flex items-center justify-center card-hover">
-                        <h4 class="text-lg font-bold text-gray-800 text-center">One Acre Fund</h4>
+                    <div class="bg-gray-50 rounded-xl p-6 card-hover flex flex-col items-center justify-center space-y-3">
+                        <div class="h-16 flex items-center justify-center">
+                            <img src="../assets/images/one acre fund.png" alt="One Acre Fund Logo" class="max-h-full max-w-full object-contain filter grayscale hover:grayscale-0 transition-all">
+                        </div>
+                        <h4 class="text-sm font-bold text-gray-800 text-center">One Acre Fund</h4>
                     </div>
-                    <div class="bg-gray-50 rounded-xl p-6 flex items-center justify-center card-hover">
-                        <h4 class="text-lg font-bold text-gray-800 text-center">Shanta Gold</h4>
+                    <div class="bg-gray-50 rounded-xl p-6 card-hover flex flex-col items-center justify-center space-y-3">
+                        <div class="h-16 flex items-center justify-center">
+                            <img src="../assets/images/tari.jpg" alt="TARI Logo" class="max-h-full max-w-full object-contain filter grayscale hover:grayscale-0 transition-all">
+                        </div>
+                        <h4 class="text-sm font-bold text-gray-800 text-center">TARI</h4>
                     </div>
-                    <div class="bg-gray-50 rounded-xl p-6 flex items-center justify-center card-hover">
-                        <h4 class="text-lg font-bold text-gray-800 text-center">TARI</h4>
+                    <div class="bg-gray-50 rounded-xl p-6 card-hover flex flex-col items-center justify-center space-y-3">
+                        <div class="h-16 flex items-center justify-center">
+                            <img src="../assets/images/save the children.png" alt="Save the Children Logo" class="max-h-full max-w-full object-contain filter grayscale hover:grayscale-0 transition-all">
+                        </div>
+                        <h4 class="text-sm font-bold text-gray-800 text-center">Save the Children</h4>
                     </div>
-                    <div class="bg-gray-50 rounded-xl p-6 flex items-center justify-center card-hover">
-                        <h4 class="text-lg font-bold text-gray-800 text-center">Save the Children</h4>
+                    <div class="bg-gray-50 rounded-xl p-6 card-hover flex flex-col items-center justify-center space-y-3">
+                        <div class="h-16 flex items-center justify-center">
+                            <img src="../assets/images/tembo nickel.jpg" alt="Tembo Nickel Logo" class="max-h-full max-w-full object-contain filter grayscale hover:grayscale-0 transition-all">
+                        </div>
+                        <h4 class="text-sm font-bold text-gray-800 text-center">Tembo Nickel</h4>
                     </div>
-                    <div class="bg-gray-50 rounded-xl p-6 flex items-center justify-center card-hover">
-                        <h4 class="text-lg font-bold text-gray-800 text-center">Tembo Nickel</h4>
-                    </div>
-                    <div class="bg-gray-50 rounded-xl p-6 flex items-center justify-center card-hover">
-                        <h4 class="text-lg font-bold text-gray-800 text-center">TAHA</h4>
+                    <div class="bg-gray-50 rounded-xl p-6 card-hover flex flex-col items-center justify-center space-y-3">
+                        <div class="h-16 flex items-center justify-center">
+                            <img src="../assets/images/taha.png" alt="TAHA Logo" class="max-h-full max-w-full object-contain filter grayscale hover:grayscale-0 transition-all">
+                        </div>
+                        <h4 class="text-sm font-bold text-gray-800 text-center">TAHA</h4>
                     </div>
                 </div>
             </div>
