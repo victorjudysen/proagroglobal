@@ -1161,25 +1161,20 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-16">
+    <footer class="bg-gray-900 text-gray-300 pt-16 pb-8">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
-                <!-- Company Info -->
-                <div class="lg:col-span-2">
-                    <div class="flex items-center space-x-3 mb-6">
-                        <img src="assets/images/logo.png" alt="Pro Agro Global Logo" class="h-12 w-auto">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <img src="../assets/images/logo.png" alt="Pro Agro Global Logo" class="h-12 w-auto">
                         <div>
-                            <h3 class="text-xl font-bold">Pro Agro Global Ltd</h3>
-                            <p class="text-sm text-gray-400">Together We Can Grow</p>
+                            <h3 class="text-white font-bold text-lg">Pro Agro Global</h3>
+                            <p class="text-xs text-agro-green-400">Together We Can Grow</p>
                         </div>
                     </div>
-                    <p class="text-gray-400 mb-6 leading-relaxed">
-                        Leading provider of modern agriculture products, facilities and technologies 
-                        across East Africa. Specializing in irrigation systems, greenhouses, 
-                        geomembranes, and civil engineering services.
-                    </p>
-                    <div class="flex space-x-4">
-                        <a href="#" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-gray-800 hover:bg-agro-green-600 rounded-full flex items-center justify-center transition-colors" aria-label="Facebook">
+                    <p class="text-sm mb-4">Leading provider of modern agriculture solutions in East Africa.</p>
+                    <div class="flex space-x-3">
+                        <a href="https://www.facebook.com/proagroglobal" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-gray-800 hover:bg-agro-green-600 rounded-full flex items-center justify-center transition-colors" aria-label="Facebook">
                             <i class="fab fa-facebook-f"></i>
                         </a>
                         <a href="https://www.instagram.com/pro_agro_global_limited?utm_source=ig_web_button_share_sheet&igsh=dHd6ejUwcmoydTU=" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-gray-800 hover:bg-agro-green-600 rounded-full flex items-center justify-center transition-colors" aria-label="Instagram">
@@ -1190,42 +1185,49 @@
                         </a>
                     </div>
                 </div>
-                
-                <!-- Quick Links -->
+
                 <div>
-                    <h4 class="text-lg font-bold mb-6">Quick Links</h4>
-                    <ul class="space-y-3">
-                        <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
-                        <li><a href="pages/about.html" class="text-gray-400 hover:text-white transition-colors">About Us</a></li>
-                        <li><a href="pages/services.html" class="text-gray-400 hover:text-white transition-colors">Services</a></li>
-                        <li><a href="pages/gallery.html" class="text-gray-400 hover:text-white transition-colors">Gallery</a></li>
-                        <li><a href="pages/contact.html" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+                    <h4 class="text-white font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="../index.html" class="hover:text-agro-green-400 transition-colors">Home</a></li>
+                        <li><a href="about.html" class="hover:text-agro-green-400 transition-colors">About Us</a></li>
+                        <li><a href="services.html" class="hover:text-agro-green-400 transition-colors">Services</a></li>
+                        <li><a href="gallery.html" class="hover:text-agro-green-400 transition-colors">Gallery</a></li>
+                        <li><a href="contact.html" class="hover:text-agro-green-400 transition-colors">Contact</a></li>
                     </ul>
                 </div>
-                
-                <!-- Services -->
+
                 <div>
-                    <h4 class="text-lg font-bold mb-6">Our Services</h4>
-                    <ul class="space-y-3">
-                        <li><a href="pages/services.html#irrigation" class="text-gray-400 hover:text-white transition-colors">Irrigation Systems</a></li>
-                        <li><a href="pages/services.html#greenhouses" class="text-gray-400 hover:text-white transition-colors">Greenhouses</a></li>
-                        <li><a href="pages/services.html#geomembranes" class="text-gray-400 hover:text-white transition-colors">Geomembranes</a></li>
-                        <li><a href="pages/services.html#civil" class="text-gray-400 hover:text-white transition-colors">Civil Engineering</a></li>
+                    <h4 class="text-white font-bold mb-4">Our Services</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="services.html#irrigation" class="hover:text-agro-green-400 transition-colors">Irrigation Systems</a></li>
+                        <li><a href="services.html#greenhouses" class="hover:text-agro-green-400 transition-colors">Greenhouses</a></li>
+                        <li><a href="services.html#geomembranes" class="hover:text-agro-green-400 transition-colors">Geomembranes</a></li>
+                        <li><a href="services.html#civil" class="hover:text-agro-green-400 transition-colors">Civil Engineering</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold mb-4">Contact Info</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-agro-green-400 mt-1 mr-3"></i>
+                            <span>Kijenge Area, Adjacent to Bonite Bottlers<br>Arusha Depot, Arusha, Tanzania</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone text-agro-green-400 mr-3"></i>
+                            <a href="tel:+255782906985" class="hover:text-agro-green-400">+255 782 906 985</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope text-agro-green-400 mr-3"></i>
+                            <a href="mailto:info@proagroglobal.co.tz" class="hover:text-agro-green-400">info@proagroglobal.co.tz</a>
+                        </li>
                     </ul>
                 </div>
             </div>
-            
-            <!-- Bottom Bar -->
-            <div class="border-t border-gray-800 pt-8">
-                <div class="flex flex-col md:flex-row justify-between items-center">
-                    <p class="text-gray-400 text-sm mb-4 md:mb-0">
-                        © 2025 Pro Agro Global Ltd. All rights reserved.
-                    </p>
-                    <div class="flex space-x-6 text-sm">
-                        <a href="#" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a>
-                        <a href="#" class="text-gray-400 hover:text-white transition-colors">Terms of Service</a>
-                    </div>
-                </div>
+
+            <div class="border-t border-gray-800 pt-8 text-center text-sm">
+                <p>&copy; 2025 Pro Agro Global Ltd. All rights reserved.</p>
             </div>
         </div>
     </footer>
