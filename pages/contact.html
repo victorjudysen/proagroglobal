@@ -133,7 +133,7 @@
                         <h2 class="text-4xl font-bold text-gray-900 mb-4">Request a Consultation</h2>
                         <p class="text-lg text-gray-600 mb-8">Fill out the form below and our team will get back to you within 24 hours.</p>
                         
-                        <form id="contact-form" class="space-y-6">
+                        <form id="contact-form" action="https://formsubmit.co/info@proagroglobal.co.tz" method="POST" class="space-y-6">
                             <div class="grid md:grid-cols-2 gap-6">
                                 <div>
                                     <label for="name" class="block text-sm font-semibold text-gray-700 mb-2">Full Name *</label>
@@ -184,6 +184,13 @@
                                           placeholder="Tell us about your project requirements..."></textarea>
                             </div>
 
+                            <!-- Hidden fields for FormSubmit configuration -->
+                            <input type="hidden" name="_subject" value="New Contact Form Submission - Pro Agro Global">
+                            <input type="hidden" name="_next" value="https://proagroglobal.co.tz/pages/thank-you.html">
+                            <input type="hidden" name="_captcha" value="false">
+                            <input type="hidden" name="_template" value="table">
+                            <input type="text" name="_honey" style="display:none">
+                            
                             <div class="flex items-start">
                                 <input type="checkbox" id="agree" name="agree" required 
                                        class="mt-1 mr-3 w-4 h-4 text-agro-green-600">
@@ -594,25 +601,20 @@
         const contactForm = document.getElementById('contact-form');
         const successMessage = document.getElementById('success-message');
         
+        // Form will submit naturally to FormSubmit service
+        // FormSubmit will handle the email sending to info@proagroglobal.co.tz
+        // After submission, user will be redirected to FormSubmit's thank you page
+        // To customize this, you can add: <input type="hidden" name="_next" value="your-thank-you-page-url">
+        
         contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
+            // Show loading state
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Sending...';
+            submitBtn.disabled = true;
             
-            // Here you would typically send the form data to your server
-            // For now, we'll just show the success message
-            
-            // Show success message
-            successMessage.style.display = 'block';
-            
-            // Reset form
-            contactForm.reset();
-            
-            // Scroll to success message
-            successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            
-            // Hide message after 5 seconds
-            setTimeout(() => {
-                successMessage.style.display = 'none';
-            }, 5000);
+            // Form will submit naturally after this
+            // The FormSubmit service will send the email and redirect
         });
     </script>
 </body>
