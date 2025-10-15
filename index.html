@@ -1047,49 +1047,85 @@
                     <!-- Contact Form -->
                     <div class="bg-gray-50 rounded-2xl p-8 shadow-lg">
                         <h3 class="text-2xl font-bold text-gray-900 mb-6">Send a Message</h3>
-                        <form id="contactForm" class="space-y-6">
-                            <div class="grid md:grid-cols-2 gap-4">
+                        <form id="contactForm" action="https://formsubmit.co/info@proagroglobal.co.tz" method="POST" class="space-y-6">
+                            <div class="grid md:grid-cols-2 gap-6">
                                 <div>
-                                    <label for="firstName" class="block text-sm font-medium text-gray-700 mb-2">First Name *</label>
-                                    <input type="text" id="firstName" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-agro-green-500 focus:border-transparent transition-all">
+                                    <label for="name" class="block text-sm font-semibold text-gray-700 mb-2">Full Name *</label>
+                                    <input type="text" id="name" name="name" required 
+                                           class="form-input w-full px-4 py-3 rounded-lg bg-white border border-gray-300 focus:ring-2 focus:ring-agro-green-500 focus:border-transparent transition-all"
+                                           placeholder="John Doe">
                                 </div>
                                 <div>
-                                    <label for="lastName" class="block text-sm font-medium text-gray-700 mb-2">Last Name *</label>
-                                    <input type="text" id="lastName" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-agro-green-500 focus:border-transparent transition-all">
+                                    <label for="email" class="block text-sm font-semibold text-gray-700 mb-2">Email Address *</label>
+                                    <input type="email" id="email" name="email" required 
+                                           class="form-input w-full px-4 py-3 rounded-lg bg-white border border-gray-300 focus:ring-2 focus:ring-agro-green-500 focus:border-transparent transition-all"
+                                           placeholder="john@example.com">
                                 </div>
                             </div>
-                            
-                            <div>
-                                <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email *</label>
-                                <input type="email" id="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-agro-green-500 focus:border-transparent transition-all">
+
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="phone" class="block text-sm font-semibold text-gray-700 mb-2">Phone Number *</label>
+                                    <input type="tel" id="phone" name="phone" required 
+                                           class="form-input w-full px-4 py-3 rounded-lg bg-white border border-gray-300 focus:ring-2 focus:ring-agro-green-500 focus:border-transparent transition-all"
+                                           placeholder="+255 xxx xxx xxx">
+                                </div>
+                                <div>
+                                    <label for="service" class="block text-sm font-semibold text-gray-700 mb-2">Service Interest</label>
+                                    <select id="service" name="service" 
+                                            class="form-input w-full px-4 py-3 rounded-lg bg-white border border-gray-300 focus:ring-2 focus:ring-agro-green-500 focus:border-transparent transition-all">
+                                        <option value="">Select a service</option>
+                                        <option value="irrigation">Irrigation Systems</option>
+                                        <option value="greenhouses">Greenhouses</option>
+                                        <option value="geomembranes">Geomembranes</option>
+                                        <option value="civil">Civil Engineering</option>
+                                        <option value="consultation">General Consultation</option>
+                                    </select>
+                                </div>
                             </div>
-                            
+
                             <div>
-                                <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">Phone</label>
-                                <input type="tel" id="phone" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-agro-green-500 focus:border-transparent transition-all">
+                                <label for="subject" class="block text-sm font-semibold text-gray-700 mb-2">Subject *</label>
+                                <input type="text" id="subject" name="subject" required 
+                                       class="form-input w-full px-4 py-3 rounded-lg bg-white border border-gray-300 focus:ring-2 focus:ring-agro-green-500 focus:border-transparent transition-all"
+                                       placeholder="Project inquiry or consultation request">
                             </div>
-                            
+
                             <div>
-                                <label for="service" class="block text-sm font-medium text-gray-700 mb-2">Service Interest</label>
-                                <select id="service" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-agro-green-500 focus:border-transparent transition-all">
-                                    <option>Select a service</option>
-                                    <option>Irrigation Systems</option>
-                                    <option>Greenhouses</option>
-                                    <option>Geomembranes</option>
-                                    <option>Civil Engineering</option>
-                                    <option>General Inquiry</option>
-                                </select>
+                                <label for="message" class="block text-sm font-semibold text-gray-700 mb-2">Message *</label>
+                                <textarea id="message" name="message" rows="6" required 
+                                          class="form-textarea w-full px-4 py-3 rounded-lg bg-white border border-gray-300 focus:ring-2 focus:ring-agro-green-500 focus:border-transparent transition-all"
+                                          placeholder="Tell us about your project requirements..."></textarea>
                             </div>
-                            
-                            <div>
-                                <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Message *</label>
-                                <textarea id="message" rows="4" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-agro-green-500 focus:border-transparent transition-all resize-none"></textarea>
+
+                            <!-- Hidden fields for FormSubmit configuration -->
+                            <input type="hidden" name="_subject" value="New Contact Form Submission - Pro Agro Global">
+                            <input type="hidden" name="_next" value="https://proagroglobal.co.tz/pages/thank-you.html">
+                            <input type="hidden" name="_captcha" value="false">
+                            <input type="hidden" name="_template" value="table">
+                            <input type="text" name="_honey" style="display:none">
+
+                            <div class="flex items-start">
+                                <input type="checkbox" id="agree" name="agree" required 
+                                       class="mt-1 mr-3 w-4 h-4 text-agro-green-600">
+                                <label for="agree" class="text-sm text-gray-600">
+                                    I agree to the terms and conditions and consent to Pro Agro Global contacting me regarding my inquiry.
+                                </label>
                             </div>
-                            
-                            <button type="submit" class="w-full btn-primary text-white py-4 rounded-lg font-semibold text-lg">
-                                <i class="fas fa-paper-plane mr-2"></i>
-                                Send Message
+
+                            <button type="submit" class="btn-primary text-white px-10 py-4 rounded-full font-semibold text-lg w-full md:w-auto">
+                                <i class="fas fa-paper-plane mr-2"></i>Send Message
                             </button>
+
+                            <div id="success-message" class="success-message" style="display:none; margin-top:1rem; padding:1rem; background:#dcfce7; border:2px solid #16a34a; border-radius:0.5rem;">
+                                <div class="flex items-center">
+                                    <i class="fas fa-check-circle text-2xl mr-3 text-green-600"></i>
+                                    <div>
+                                        <h4 class="font-bold text-gray-900">Message Sent Successfully!</h4>
+                                        <p class="text-sm text-gray-700">We'll get back to you within 24 hours.</p>
+                                    </div>
+                                </div>
+                            </div>
                         </form>
                     </div>
                     
@@ -1343,35 +1379,22 @@
         });
 
         // Form submission
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
+        const contactForm = document.getElementById('contactForm');
+        const successMessage = document.getElementById('success-message');
+        
+        // Form will submit naturally to FormSubmit service
+        // FormSubmit will handle the email sending to info@proagroglobal.co.tz
+        // After submission, user will be redirected to the thank-you page
+        
+        contactForm.addEventListener('submit', function(e) {
+            // Show loading state
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Sending...';
+            submitBtn.disabled = true;
             
-            // Show success message
-            const form = e.target;
-            const successDiv = document.createElement('div');
-            successDiv.setAttribute('role', 'alert');
-            successDiv.setAttribute('aria-live', 'polite');
-            successDiv.className = 'bg-green-50 border-l-4 border-green-500 text-green-700 p-4 mb-4 rounded';
-            successDiv.innerHTML = `
-                <div class="flex">
-                    <i class="fas fa-check-circle mr-2 text-xl"></i>
-                    <div>
-                        <p class="font-semibold">Message sent successfully!</p>
-                        <p class="text-sm">We'll get back to you soon.</p>
-                    </div>
-                </div>
-            `;
-            
-            form.insertBefore(successDiv, form.firstChild);
-            form.reset();
-            
-            // Remove success message after 5 seconds
-            setTimeout(() => {
-                successDiv.remove();
-            }, 5000);
-            
-            // Scroll to success message
-            successDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            // Form will submit naturally after this
+            // The FormSubmit service will send the email and redirect
         });
 
         // Smooth scroll for anchor links
