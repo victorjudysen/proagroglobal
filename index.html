@@ -480,18 +480,18 @@
         .mobile-menu-item {
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 20px;
-            width: 100%;
-            max-width: 400px;
-            padding: 20px 30px;
+            justify-content: space-between;
+            gap: 12px;
+            width: 90%;
+            max-width: 350px;
+            padding: 14px 20px;
             color: white;
-            font-size: 1.75rem;
+            font-size: 1.25rem;
             font-weight: 700;
             text-decoration: none;
             position: relative;
             overflow: hidden;
-            border-radius: 20px;
+            border-radius: 15px;
             transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
             opacity: 0;
             transform: translateX(-100px) rotate(-5deg);
@@ -537,11 +537,11 @@
         
         /* Menu Item Components */
         .menu-item-number {
-            font-size: 1rem;
+            font-size: 0.875rem;
             font-weight: 400;
             opacity: 0.6;
-            min-width: 40px;
-            text-align: right;
+            min-width: 30px;
+            text-align: left;
         }
         
         .menu-item-text {
@@ -550,9 +550,11 @@
         }
         
         .menu-item-icon {
-            font-size: 1.5rem;
+            font-size: 1.25rem;
             opacity: 0.8;
             transition: all 0.3s ease;
+            min-width: 30px;
+            text-align: right;
         }
         
         .mobile-menu-item:hover .menu-item-icon {
@@ -565,16 +567,16 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
-            margin-top: 30px;
-            padding: 18px 40px;
+            gap: 8px;
+            margin-top: 20px;
+            padding: 14px 32px;
             background: white;
             color: #16a34a;
-            font-size: 1.25rem;
+            font-size: 1.1rem;
             font-weight: 700;
             text-decoration: none;
             border-radius: 50px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
             transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
             opacity: 0;
             transform: translateY(50px) scale(0.8);
@@ -678,6 +680,45 @@
         body.menu-open {
             overflow: hidden;
         }
+        
+        /* Mobile menu responsive adjustments */
+        @media (max-width: 480px) {
+            .mobile-menu-item {
+                font-size: 1.1rem;
+                padding: 12px 16px;
+                gap: 10px;
+            }
+            
+            .menu-item-number {
+                font-size: 0.75rem;
+                min-width: 25px;
+            }
+            
+            .menu-item-icon {
+                font-size: 1.1rem;
+                min-width: 25px;
+            }
+            
+            .mobile-menu-cta {
+                font-size: 1rem;
+                padding: 12px 28px;
+                margin-top: 15px;
+            }
+        }
+        
+        @media (max-height: 700px) {
+            .mobile-menu-item {
+                padding: 10px 16px;
+            }
+            
+            nav.flex.flex-col {
+                gap: 0.75rem !important;
+            }
+            
+            .mobile-menu-cta {
+                margin-top: 10px;
+            }
+        }
     </style>
     
     <title>Pro Agro Global Ltd - Modern Agriculture Solutions | Together We Can Grow</title>
@@ -742,7 +783,7 @@
                 </button>
                 
                 <!-- Menu Items -->
-                <nav class="flex flex-col items-center justify-center h-full space-y-6 px-8">
+                <nav class="flex flex-col items-center justify-center h-full space-y-4 px-6 py-8">
                     <a href="index.html" class="mobile-menu-item mobile-menu-item-1">
                         <span class="menu-item-number">01</span>
                         <span class="menu-item-text">Home</span>
@@ -772,7 +813,7 @@
                     <!-- CTA Button -->
                     <a href="pages/contact.html" class="mobile-menu-cta">
                         <span>Get a Quote</span>
-                        <i class="fas fa-arrow-right ml-2"></i>
+                        <i class="fas fa-arrow-right"></i>
                     </a>
                 </nav>
                 
